@@ -1,83 +1,71 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
 import { phonemeMap } from './data/phonemeMap';
 import { speak } from './utils/textToSpeech';
 
+const PINYIN_INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
+const PINYIN_FINALS = ['iang', 'iong', 'uang', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ang', 'eng', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ai', 'an', 'ao', 'ei', 'en', 'er', 'ie', 'in', 'iu', 'ou', 'ui', 'un', 'uo', 'a', 'e', 'i', 'o', 'u', 'v', 'ü'];
+
 const App = () => {
   const [inputName, setInputName] = useState('');
   const [pronunciation, setPronunciation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
-  const [pinyinModule, setPinyinModule] = useState(null);
 
-  useEffect(() => {
-    // Debug log for phonemeMap
-    console.log('PhonemeMap loaded:', phonemeMap);
+  const separatePinyinSyllables = (input) => {
+    const cleanInput = input.toLowerCase().trim();
+    let result = [];
+    let remaining = cleanInput;
     
-    // Load pinyin-separate dynamically
-    import('pinyin-separate').then(module => {
-      console.log('Loaded pinyin module:', module); // Debug log
-      setPinyinModule(module.default || module);
-    }).catch(err => {
-      console.error('Failed to load pinyin-separate:', err);
-      setPinyinModule(null);
-    });
-  }, []);
-
-  const findLongestMatchingSyllable = (str, startIndex) => {
-    // Try to find the longest matching syllable starting at startIndex
-    let end = str.length;
-    while (end > startIndex) {
-      const syllable = str.substring(startIndex, end);
-      console.log('Trying syllable:', syllable, 'Found in map:', !!phonemeMap[syllable]);
-      if (phonemeMap[syllable]) {
-        console.log('Found matching syllable:', syllable);
-        return syllable;
+    while (remaining.length > 0) {
+      // Try to find the longest valid syllable at the start of remaining string
+      let found = false;
+      
+      // Try each initial + final combination
+      for (const initial of PINYIN_INITIALS) {
+        if (remaining.startsWith(initial)) {
+          for (const final of PINYIN_FINALS) {
+            const syllable = initial + final;
+            if (remaining.startsWith(syllable) && phonemeMap[syllable]) {
+              result.push(syllable);
+              remaining = remaining.slice(syllable.length);
+              found = true;
+              break;
+            }
+          }
+          if (found) break;
+        }
       }
-      end--;
+      
+      // If no initial+final combination found, try just finals
+      if (!found) {
+        for (const final of PINYIN_FINALS) {
+          if (remaining.startsWith(final) && phonemeMap[final]) {
+            result.push(final);
+            remaining = remaining.slice(final.length);
+            found = true;
+            break;
+          }
+        }
+      }
+      
+      // If still no match found, take one character
+      if (!found) {
+        result.push(remaining[0]);
+        remaining = remaining.slice(1);
+      }
     }
-    console.log('No match found, returning single character:', str[startIndex]);
-    return str[startIndex]; // Return single character if no match found
+    
+    return result;
   };
 
   const getPronunciation = (name) => {
     if (!name) return { syllables: [], notFoundSyllables: [] };
     
-    const cleanName = name.toLowerCase().trim();
-    console.log('Processing name:', cleanName);
-    console.log('PhonemeMap keys:', Object.keys(phonemeMap));
-    let syllables = [];
-    let i = 0;
-
-    // First try using the pinyin module
-    if (pinyinModule && typeof pinyinModule === 'function') {
-      try {
-        syllables = pinyinModule(cleanName);
-        console.log('Pinyin module returned:', syllables);
-      } catch (err) {
-        console.error('Error using pinyin module:', err);
-        // If pinyin module fails, fall back to our own syllable detection
-        while (i < cleanName.length) {
-          const syllable = findLongestMatchingSyllable(cleanName, i);
-          syllables.push(syllable);
-          i += syllable.length;
-        }
-      }
-    } else {
-      console.log('Using fallback syllable detection');
-      // If no pinyin module, use our own syllable detection
-      while (i < cleanName.length) {
-        const syllable = findLongestMatchingSyllable(cleanName, i);
-        syllables.push(syllable);
-        i += syllable.length;
-      }
-    }
-    
-    console.log('Final syllables:', syllables);
+    const syllables = separatePinyinSyllables(name);
     const notFoundSyllables = syllables.filter(syllable => !phonemeMap[syllable]);
-    console.log('Not found syllables:', notFoundSyllables);
     return { syllables, notFoundSyllables };
   };
 
@@ -91,7 +79,7 @@ const App = () => {
       
       if (notFoundSyllables.length > 0) {
         setErrors([
-          `Found pronunciation for: "${syllables.join('", "')}"${syllables.length ? '.' : ''} ` +
+          `Found pronunciation for: "${syllables.filter(s => phonemeMap[s]).join('", "')}"${syllables.length ? '.' : ''} ` +
           `Could not find pronunciation for: "${notFoundSyllables.join('", "')}". ` +
           `Try checking the spelling or breaking the name into different syllables.`
         ]);
