@@ -5,7 +5,7 @@ export const phonemeMap = {
   },
   'jie': { 
     sound: 'gee-eh', 
-    description:"gee like the letter g, and the sound 'eh"
+    description: "gee like the letter g, and the sound 'eh"
   },
   'li': { 
     sound: 'lee', 
@@ -29,7 +29,7 @@ export const phonemeMap = {
   },
   'wei': { 
     sound: 'way', 
-    description: 'like "way"'
+    description: 'like "way", as in "way to go"'
   },
   'xiao': { 
     sound: 'she-ow', 
@@ -39,9 +39,33 @@ export const phonemeMap = {
     sound: 'shoon', 
     description: 'rhymes with "moon" but starts with "sh"'
   },
+  'yi': {
+    sound: 'ee',
+    description: 'like the "ee" in "see"'
+  },
   'yuan': { 
     sound: 'U-N', 
     description: 'like the letters U and N together'
+  },
+  'zha': { 
+    sound: 'j-a', 
+    description: 'like "spa" with a "j" sound'
+  },
+  'zhang': {
+    sound: 'jong',
+    description: 'rhymes with "song" but starts with "j"'
+  },
+  'zhan': { 
+    sound: 'jan', 
+    description: 'somewhere between "jan" like "january" and "john" like the name'
+  },
+  'zhao': { 
+    sound: 'j-ow', 
+    description: 'rhymes with "wow" but starts with "j"'
+  },
+  'zhe': { 
+    sound: 'ju-', 
+    description: 'like the beginning of "jump"'
   },
   'zheng': { 
     sound: 'jung', 

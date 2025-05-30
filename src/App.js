@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { phonemeMap } from './data/phonemeMap';
 import { speak } from './utils/textToSpeech';
+import pinyinSeparate from 'pinyin-separate';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
@@ -14,30 +15,8 @@ const ChineseNameApp = () => {
 
   const getPronunciation = (name) => {
     const cleanName = name.toLowerCase().trim();
-    const syllables = [];
-    const notFoundSyllables = [];
-    const phonemes = Object.keys(phonemeMap);
-    let remainingName = cleanName;
-    
-    while (remainingName.length > 0) {
-      let matched = false;
-      for (let phoneme of phonemes.sort((a, b) => b.length - a.length)) {
-        if (remainingName.startsWith(phoneme)) {
-          syllables.push(phoneme);
-          remainingName = remainingName.slice(phoneme.length);
-          matched = true;
-          break;
-        }
-      }
-      
-      if (!matched) {
-        const unmatched = remainingName[0];
-        syllables.push(unmatched);
-        notFoundSyllables.push(unmatched);
-        remainingName = remainingName.slice(1);
-      }
-    }
-    
+    const syllables = pinyinSeparate(cleanName);
+    const notFoundSyllables = syllables.filter(syllable => !phonemeMap[syllable]);
     return { syllables, notFoundSyllables };
   };
 
@@ -52,6 +31,7 @@ const ChineseNameApp = () => {
       // Handle errors if any syllables weren't found
       if (notFoundSyllables.length > 0) {
         setErrors([
+          `Found pronunciation for: "${syllables.join('", "')}"${syllables.length ? '.' : ''} ` +
           `Could not find pronunciation for: "${notFoundSyllables.join('", "')}". ` +
           `Try checking the spelling or breaking the name into different syllables.`
         ]);
@@ -119,7 +99,7 @@ const ChineseNameApp = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
