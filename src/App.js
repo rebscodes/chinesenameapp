@@ -10,10 +10,12 @@ const ChineseNameApp = () => {
   const [inputName, setInputName] = useState('');
   const [pronunciation, setPronunciation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const getPronunciation = (name) => {
     const cleanName = name.toLowerCase().trim();
     const syllables = [];
+    const notFoundSyllables = [];
     const phonemes = Object.keys(phonemeMap);
     let remainingName = cleanName;
     
@@ -29,20 +31,32 @@ const ChineseNameApp = () => {
       }
       
       if (!matched) {
-        syllables.push(remainingName[0]);
+        const unmatched = remainingName[0];
+        syllables.push(unmatched);
+        notFoundSyllables.push(unmatched);
         remainingName = remainingName.slice(1);
       }
     }
     
-    return syllables;
+    return { syllables, notFoundSyllables };
   };
 
   const handlePronounce = () => {
     if (!inputName.trim()) return;
     setIsLoading(true);
+    setErrors([]);
     
     setTimeout(() => {
-      const syllables = getPronunciation(inputName);
+      const { syllables, notFoundSyllables } = getPronunciation(inputName);
+      
+      // Handle errors if any syllables weren't found
+      if (notFoundSyllables.length > 0) {
+        setErrors([
+          `Could not find pronunciation for: "${notFoundSyllables.join('", "')}". ` +
+          `Try checking the spelling or breaking the name into different syllables.`
+        ]);
+      }
+
       const pronunciationParts = syllables.map(syllable => {
         if (phonemeMap[syllable]) {
           const mapping = phonemeMap[syllable];
@@ -60,6 +74,7 @@ const ChineseNameApp = () => {
   const clearInput = () => {
     setInputName('');
     setPronunciation('');
+    setErrors([]);
   };
 
   const playAudio = () => {
@@ -80,6 +95,16 @@ const ChineseNameApp = () => {
           isLoading={isLoading}
           clearInput={clearInput}
         />
+
+        {errors.length > 0 && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+            {errors.map((error, index) => (
+              <p key={index} className="text-red-700">
+                {error}
+              </p>
+            ))}
+          </div>
+        )}
 
         <ResultsSection 
           pronunciation={pronunciation}
