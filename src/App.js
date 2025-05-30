@@ -1,22 +1,83 @@
-import React, { useState } from 'react';
-import { phonemeMap } from './data/phonemeMap';
-import { speak } from './utils/textToSpeech';
-import pinyinSeparate from 'pinyin-separate';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
-import ExamplesSection from './components/ExamplesSection';
+import { phonemeMap } from './data/phonemeMap';
+import { speak } from './utils/textToSpeech';
 
-const ChineseNameApp = () => {
+const App = () => {
   const [inputName, setInputName] = useState('');
   const [pronunciation, setPronunciation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [pinyinModule, setPinyinModule] = useState(null);
+
+  useEffect(() => {
+    // Debug log for phonemeMap
+    console.log('PhonemeMap loaded:', phonemeMap);
+    
+    // Load pinyin-separate dynamically
+    import('pinyin-separate').then(module => {
+      console.log('Loaded pinyin module:', module); // Debug log
+      setPinyinModule(module.default || module);
+    }).catch(err => {
+      console.error('Failed to load pinyin-separate:', err);
+      setPinyinModule(null);
+    });
+  }, []);
+
+  const findLongestMatchingSyllable = (str, startIndex) => {
+    // Try to find the longest matching syllable starting at startIndex
+    let end = str.length;
+    while (end > startIndex) {
+      const syllable = str.substring(startIndex, end);
+      console.log('Trying syllable:', syllable, 'Found in map:', !!phonemeMap[syllable]);
+      if (phonemeMap[syllable]) {
+        console.log('Found matching syllable:', syllable);
+        return syllable;
+      }
+      end--;
+    }
+    console.log('No match found, returning single character:', str[startIndex]);
+    return str[startIndex]; // Return single character if no match found
+  };
 
   const getPronunciation = (name) => {
+    if (!name) return { syllables: [], notFoundSyllables: [] };
+    
     const cleanName = name.toLowerCase().trim();
-    const syllables = pinyinSeparate(cleanName);
+    console.log('Processing name:', cleanName);
+    console.log('PhonemeMap keys:', Object.keys(phonemeMap));
+    let syllables = [];
+    let i = 0;
+
+    // First try using the pinyin module
+    if (pinyinModule && typeof pinyinModule === 'function') {
+      try {
+        syllables = pinyinModule(cleanName);
+        console.log('Pinyin module returned:', syllables);
+      } catch (err) {
+        console.error('Error using pinyin module:', err);
+        // If pinyin module fails, fall back to our own syllable detection
+        while (i < cleanName.length) {
+          const syllable = findLongestMatchingSyllable(cleanName, i);
+          syllables.push(syllable);
+          i += syllable.length;
+        }
+      }
+    } else {
+      console.log('Using fallback syllable detection');
+      // If no pinyin module, use our own syllable detection
+      while (i < cleanName.length) {
+        const syllable = findLongestMatchingSyllable(cleanName, i);
+        syllables.push(syllable);
+        i += syllable.length;
+      }
+    }
+    
+    console.log('Final syllables:', syllables);
     const notFoundSyllables = syllables.filter(syllable => !phonemeMap[syllable]);
+    console.log('Not found syllables:', notFoundSyllables);
     return { syllables, notFoundSyllables };
   };
 
@@ -28,7 +89,6 @@ const ChineseNameApp = () => {
     setTimeout(() => {
       const { syllables, notFoundSyllables } = getPronunciation(inputName);
       
-      // Handle errors if any syllables weren't found
       if (notFoundSyllables.length > 0) {
         setErrors([
           `Found pronunciation for: "${syllables.join('", "')}"${syllables.length ? '.' : ''} ` +
@@ -66,7 +126,6 @@ const ChineseNameApp = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Header />
-      
       <div className="max-w-md mx-auto px-4 py-6 space-y-6">
         <InputSection
           inputName={inputName}
@@ -91,25 +150,13 @@ const ChineseNameApp = () => {
           playAudio={playAudio}
         />
 
-        <ExamplesSection setInputName={setInputName} />
-
         <div className="text-center text-sm text-gray-500 space-y-2">
           <p>Phonetic mappings help English speakers</p>
           <p>pronounce Chinese names correctly</p>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-      `}</style>
     </div>
   );
 };
 
-export default ChineseNameApp;
+export default App;

@@ -1,10 +1,23 @@
-import pinyinSeparate from 'pinyin-separate';
 import { phonemeMap } from '../data/phonemeMap';
 
 describe('Pinyin Segmentation', () => {
+  let pinyinSeparate;
+
+  beforeAll(async () => {
+    const module = await import('pinyin-separate');
+    // The module might export the function as default or as a named export
+    pinyinSeparate = module.default || module;
+    if (!pinyinSeparate) {
+      // Fallback to simple string splitting if module fails to load
+      pinyinSeparate = str => str.split('');
+    }
+  });
+
   const getPronunciation = (name) => {
+    if (!name) return { syllables: [], notFoundSyllables: [] };
+    
     const cleanName = name.toLowerCase().trim();
-    const syllables = pinyinSeparate(cleanName);
+    const syllables = pinyinSeparate ? pinyinSeparate(cleanName) : cleanName.split('');
     const notFoundSyllables = syllables.filter(syllable => !phonemeMap[syllable]);
     return { syllables, notFoundSyllables };
   };
