@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
+import ExamplesSection from './components/ExamplesSection';
 import { getPronunciation, formatPronunciationError, formatPronunciationResult } from './utils/pinyinUtils';
 
 const App = () => {
@@ -52,6 +53,8 @@ const App = () => {
           isLoading={isLoading}
           clearInput={clearInput}
         />
+
+        <ExamplesSection setInputName={setInputName} />
 
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-xl p-4">
