@@ -54,8 +54,6 @@ const App = () => {
           clearInput={clearInput}
         />
 
-        <ExamplesSection setInputName={setInputName} />
-
         {errors.length > 0 && (
           <div className="bg-red-50 border border-red-200 rounded-xl p-4">
             {errors.map((error, index) => (
@@ -69,6 +67,8 @@ const App = () => {
         <ResultsSection 
           pronunciation={pronunciation}
         />
+
+        <ExamplesSection setInputName={setInputName} />
 
         <div className="text-center text-sm text-gray-500 space-y-2">
           <p>Phonetic mappings help English speakers</p>
