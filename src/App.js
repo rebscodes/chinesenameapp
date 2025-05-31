@@ -3,7 +3,6 @@ import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
 import { phonemeMap } from './data/phonemeMap';
-import { speak } from './utils/textToSpeech';
 
 const PINYIN_INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
 const PINYIN_FINALS = ['iang', 'iong', 'uang', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ang', 'eng', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ai', 'an', 'ao', 'ei', 'en', 'er', 'ie', 'in', 'iu', 'ou', 'ui', 'un', 'uo', 'a', 'e', 'i', 'o', 'u', 'v', 'ü'];
@@ -105,12 +104,6 @@ const App = () => {
     setErrors([]);
   };
 
-  const playAudio = () => {
-    if (pronunciation) {
-      speak(pronunciation);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Header />
@@ -135,7 +128,6 @@ const App = () => {
 
         <ResultsSection 
           pronunciation={pronunciation}
-          playAudio={playAudio}
         />
 
         <div className="text-center text-sm text-gray-500 space-y-2">
