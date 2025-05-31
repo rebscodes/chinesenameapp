@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
-<<<<<<< HEAD
 import { getPronunciation, formatPronunciationError, formatPronunciationResult } from './utils/pinyinUtils';
-=======
-import { phonemeMap } from './data/phonemeMap';
-
-const PINYIN_INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
-const PINYIN_FINALS = ['iang', 'iong', 'uang', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ang', 'eng', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ai', 'an', 'ao', 'ei', 'en', 'er', 'ie', 'in', 'iu', 'ou', 'ui', 'un', 'uo', 'a', 'e', 'i', 'o', 'u', 'v', 'ü'];
->>>>>>> 26b9436e59b3ca92199826ef8ce7220ff8f04659
 
 const App = () => {
   const [inputName, setInputName] = useState('');
@@ -17,28 +10,36 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  const handlePronounce = () => {
+  const handlePronounce = useCallback(() => {
     if (!inputName.trim()) return;
+    
     setIsLoading(true);
     setErrors([]);
-    
-    setTimeout(() => {
-      const { syllables, notFoundSyllables } = getPronunciation(inputName);
-      
-      if (notFoundSyllables.length > 0) {
-        setErrors([formatPronunciationError(syllables, notFoundSyllables)]);
-      }
+    setPronunciation('');
 
-      setPronunciation(formatPronunciationResult(syllables));
-      setIsLoading(false);
-    }, 800);
-  };
+    // Use Promise to handle the async operation
+    new Promise((resolve) => {
+      setTimeout(() => {
+        const { syllables, notFoundSyllables } = getPronunciation(inputName);
+        resolve({ syllables, notFoundSyllables });
+      }, 800);
+    })
+      .then(({ syllables, notFoundSyllables }) => {
+        if (notFoundSyllables.length > 0) {
+          setErrors([formatPronunciationError(syllables, notFoundSyllables)]);
+        }
+        setPronunciation(formatPronunciationResult(syllables));
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [inputName]);
 
-  const clearInput = () => {
+  const clearInput = useCallback(() => {
     setInputName('');
     setPronunciation('');
     setErrors([]);
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
