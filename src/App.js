@@ -68,7 +68,7 @@ const App = () => {
           pronunciation={pronunciation}
         />
 
-        {pronunciation && <ExamplesSection setInputName={setInputName} />}
+        <ExamplesSection setInputName={setInputName} />
 
         <div className="text-center text-sm text-gray-500 space-y-2">
           <p>Phonetic mappings help English speakers</p>
