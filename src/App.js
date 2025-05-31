@@ -2,71 +2,20 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
+<<<<<<< HEAD
+import { getPronunciation, formatPronunciationError, formatPronunciationResult } from './utils/pinyinUtils';
+=======
 import { phonemeMap } from './data/phonemeMap';
 
 const PINYIN_INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
 const PINYIN_FINALS = ['iang', 'iong', 'uang', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ang', 'eng', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ai', 'an', 'ao', 'ei', 'en', 'er', 'ie', 'in', 'iu', 'ou', 'ui', 'un', 'uo', 'a', 'e', 'i', 'o', 'u', 'v', 'ü'];
+>>>>>>> 26b9436e59b3ca92199826ef8ce7220ff8f04659
 
 const App = () => {
   const [inputName, setInputName] = useState('');
   const [pronunciation, setPronunciation] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
-
-  const separatePinyinSyllables = (input) => {
-    const cleanInput = input.toLowerCase().trim();
-    let result = [];
-    let remaining = cleanInput;
-    
-    while (remaining.length > 0) {
-      // Try to find the longest valid syllable at the start of remaining string
-      let found = false;
-      
-      // Try each initial + final combination
-      for (const initial of PINYIN_INITIALS) {
-        if (remaining.startsWith(initial)) {
-          for (const final of PINYIN_FINALS) {
-            const syllable = initial + final;
-            if (remaining.startsWith(syllable) && phonemeMap[syllable]) {
-              result.push(syllable);
-              remaining = remaining.slice(syllable.length);
-              found = true;
-              break;
-            }
-          }
-          if (found) break;
-        }
-      }
-      
-      // If no initial+final combination found, try just finals
-      if (!found) {
-        for (const final of PINYIN_FINALS) {
-          if (remaining.startsWith(final) && phonemeMap[final]) {
-            result.push(final);
-            remaining = remaining.slice(final.length);
-            found = true;
-            break;
-          }
-        }
-      }
-      
-      // If still no match found, take one character
-      if (!found) {
-        result.push(remaining[0]);
-        remaining = remaining.slice(1);
-      }
-    }
-    
-    return result;
-  };
-
-  const getPronunciation = (name) => {
-    if (!name) return { syllables: [], notFoundSyllables: [] };
-    
-    const syllables = separatePinyinSyllables(name);
-    const notFoundSyllables = syllables.filter(syllable => !phonemeMap[syllable]);
-    return { syllables, notFoundSyllables };
-  };
 
   const handlePronounce = () => {
     if (!inputName.trim()) return;
@@ -77,23 +26,10 @@ const App = () => {
       const { syllables, notFoundSyllables } = getPronunciation(inputName);
       
       if (notFoundSyllables.length > 0) {
-        setErrors([
-          `Found pronunciation for: "${syllables.filter(s => phonemeMap[s]).join('", "')}"${syllables.length ? '.' : ''} ` +
-          `Could not find pronunciation for: "${notFoundSyllables.join('", "')}". ` +
-          `Try checking the spelling or breaking the name into different syllables.`
-        ]);
+        setErrors([formatPronunciationError(syllables, notFoundSyllables)]);
       }
 
-      const pronunciationParts = syllables.map(syllable => {
-        if (phonemeMap[syllable]) {
-          const mapping = phonemeMap[syllable];
-          return `"${syllable}" is said ${mapping.description}`;
-        } else {
-          return `"${syllable}" (pronunciation not found)`;
-        }
-      });
-      
-      setPronunciation(pronunciationParts.join(', '));
+      setPronunciation(formatPronunciationResult(syllables));
       setIsLoading(false);
     }, 800);
   };
