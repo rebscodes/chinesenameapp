@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
+<<<<<<< HEAD
 import { getPronunciation, formatPronunciationError, formatPronunciationResult } from './utils/pinyinUtils';
+=======
+import { phonemeMap } from './data/phonemeMap';
+
+const PINYIN_INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
+const PINYIN_FINALS = ['iang', 'iong', 'uang', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ang', 'eng', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ai', 'an', 'ao', 'ei', 'en', 'er', 'ie', 'in', 'iu', 'ou', 'ui', 'un', 'uo', 'a', 'e', 'i', 'o', 'u', 'v', 'ü'];
+>>>>>>> 26b9436e59b3ca92199826ef8ce7220ff8f04659
 
 const App = () => {
   const [inputName, setInputName] = useState('');
