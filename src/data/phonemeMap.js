@@ -11,6 +11,10 @@ export const phonemeMap = {
     sound: 'lee', 
     description: 'rhymes with tree'
   },
+  'ling': {
+    sound: 'ling',
+    description: 'rhymes with sing'
+  },
   'ming': { 
     sound: 'ming', 
     description: 'rhymes with ring'
@@ -46,6 +50,10 @@ export const phonemeMap = {
   'yuan': { 
     sound: 'U-N', 
     description: 'like the letters U and N together'
+  },
+  'zao': {
+    sound: 'z-ow',
+    description: 'rhymes with "now" but starts with "z"'
   },
   'zha': { 
     sound: 'j-a', 
