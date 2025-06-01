@@ -1,4 +1,28 @@
 export const phonemeMap = {
+  'a': {
+    sound: 'ah',
+    description: 'like the "ah, I see!"'
+  },
+  'ai': {
+    sound: 'eye',
+    description: '"eye" as in "eye to eye"'
+  },
+  'an': {
+    sound: 'ahn',
+    description: 'like the "on" in "upon"'
+  },  
+  'ang': {
+    sound: 'ang',
+    description: 'starts with the sound "ah" and ends with "ng", like king kong'
+  },
+  'ao': {
+    sound: 'ow',
+    description: 'like the "ow" in "owl"'
+  },
+  'ba': {
+    sound: 'ba',
+    description: 'like the "ba" in "thats a bop!"'
+  },
   'chong': { 
     sound: 'chong', 
     description: 'rhymes with strong'

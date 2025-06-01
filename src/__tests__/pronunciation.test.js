@@ -108,13 +108,13 @@ describe('Pinyin Syllable Separation', () => {
 
   // Test invalid input
   test('handles invalid input correctly', () => {
-    const result1 = getPronunciation('abc');
-    expect(result1.syllables).toEqual(['a', 'b', 'c']);
-    expect(result1.notFoundSyllables).toEqual(['a', 'b', 'c']);
+    const result1 = getPronunciation('xyz');
+    expect(result1.syllables).toEqual(['x', 'y', 'z']);
+    expect(result1.notFoundSyllables).toEqual(['x', 'y', 'z']);
 
-    const result2 = getPronunciation('zhengabc');
-    expect(result2.syllables).toEqual(['zheng', 'a', 'b', 'c']);
-    expect(result2.notFoundSyllables).toEqual(['a', 'b', 'c']);
+    const result2 = getPronunciation('zhengxyz');
+    expect(result2.syllables).toEqual(['zheng', 'x', 'y', 'z']);
+    expect(result2.notFoundSyllables).toEqual(['x', 'y', 'z']);
   });
 
   // Test empty input
