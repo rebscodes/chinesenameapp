@@ -107,7 +107,7 @@ describe('InputSection Component', () => {
 
 describe('ResultsSection Component', () => {
   test('renders pronunciation guide with correct styling', () => {
-    const pronunciation = '"zhang" is said rhymes with "song" but starts with "j"';
+    const pronunciation = 'zhang rhymes with "song" with a "j" sound';
     render(<ResultsSection pronunciation={pronunciation} />);
     
     // Check for heading and content
@@ -169,7 +169,7 @@ describe('App Integration', () => {
       expect(screen.getByText(/Pronunciation Guide/i)).toBeInTheDocument();
     });
 
-    expect(screen.getByText(/rhymes with "song" but starts with "j"/i)).toBeInTheDocument();
+    expect(screen.getByText(/rhymes with "song" with a "j" sound/i)).toBeInTheDocument();
   });
 
   test('handles invalid input with error message', async () => {

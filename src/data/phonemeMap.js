@@ -1,55 +1,55 @@
 export const phonemeMap = {
   'a': {
     sound: 'ah',
-    description: 'like the "ah, I see!"'
+    description: 'is said like "ah, I see!"'
   },
   'ai': {
     sound: 'eye',
-    description: '"eye" as in "eye to eye"'
+    description: 'is said like "eye" as in "seeing eye to eye"'
   },
   'an': {
     sound: 'ahn',
-    description: 'like the "on" in "upon"'
+    description: 'is said like "on" in "upon"'
   },  
   'ang': {
     sound: 'ang',
-    description: 'starts with the sound "ah" and ends with "ng", like king kong'
+    description: 'is said with "ah" sound ending in "ng" as in "king kong"'
   },
   'ao': {
     sound: 'ow',
-    description: 'like the "ow" in "owl"'
+    description: 'is said like "ow" in "owl"'
   },
   'ba': {
     sound: 'ba',
-    description: 'like the "ba" in "thats a bop!"'
+    description: 'is saidlike the "ba" in "thats a bop!"'
   },
   'chong': { 
     sound: 'chong', 
-    description: 'rhymes with strong'
+    description: 'rhymes with "strong"'
   },
   'jie': { 
     sound: 'gee-eh', 
-    description: "gee like the letter g, and the sound 'eh"
+    description: "is said like the letter g, and the sound 'eh'"
   },
   'li': { 
     sound: 'lee', 
-    description: 'rhymes with tree'
+    description: 'rhymes with "tree"'
   },
   'ling': {
     sound: 'ling',
-    description: 'rhymes with sing'
+    description: 'rhymes with "sing"'
   },
   'ming': { 
     sound: 'ming', 
-    description: 'rhymes with ring'
+    description: 'rhymes with "ring"'
   },
   'peng': { 
     sound: 'pung', 
-    description: 'rhymes with sung'
+    description: 'rhymes with "sung"'
   },
   'tian': { 
     sound: 'T-N', 
-    description: 'like the letters T and N together'
+    description: 'is saidlike the letters T and N together'
   },
   'tuo': { 
     sound: 'tw-oh', 
@@ -57,11 +57,11 @@ export const phonemeMap = {
   },
   'wei': { 
     sound: 'way', 
-    description: 'like "way", as in "way to go"'
+    description: 'is said like "way", as in "way to go"'
   },
   'xiao': { 
     sound: 'she-ow', 
-    description: 'rhymes with meow'
+    description: 'rhymes with "meow"'
   },
   'xun': { 
     sound: 'shoon', 
@@ -69,11 +69,11 @@ export const phonemeMap = {
   },
   'yi': {
     sound: 'ee',
-    description: 'like the "ee" in "see"'
+    description: 'like the letter e'
   },
   'yuan': { 
     sound: 'U-N', 
-    description: 'like the letters U and N together'
+    description: 'is said like the letters U and N together'
   },
   'zao': {
     sound: 'z-ow',
@@ -81,11 +81,11 @@ export const phonemeMap = {
   },
   'zha': { 
     sound: 'j-a', 
-    description: 'like "spa" with a "j" sound'
+    description: 'like the word "jaw"'
   },
   'zhang': {
     sound: 'jong',
-    description: 'rhymes with "song" but starts with "j"'
+    description: 'rhymes with "song" with a "j" sound'
   },
   'zhan': { 
     sound: 'jan', 
@@ -93,22 +93,22 @@ export const phonemeMap = {
   },
   'zhao': { 
     sound: 'j-ow', 
-    description: 'rhymes with "wow" but starts with "j"'
+    description: 'rhymes with "wow" with a "j" sound'
   },
   'zhe': { 
     sound: 'ju-', 
-    description: 'like the beginning of "jump"'
+    description: 'is said like the beginning of the word "jump"'
   },
   'zheng': { 
     sound: 'jung', 
-    description: 'like "jung" as in jungle'
+    description: 'is said like "jung" in "jungle"'
   },
   'zhi': { 
     sound: 'jur', 
-    description: 'like "jur" as in "jury"'
+    description: 'is said like "jur" in "jury"'
   },
   'zhou': { 
     sound: 'Joe', 
-    description: 'like the American name "Joe"'
+    description: 'is said like "joe"'
   }
 }; 

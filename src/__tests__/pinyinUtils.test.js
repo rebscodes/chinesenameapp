@@ -128,15 +128,15 @@ describe('Pinyin Utilities', () => {
       const cases = [
         {
           syllables: ['zhang'],
-          expected: '"zhang" is said rhymes with "song" but starts with "j"'
+          expected: 'zhang rhymes with "song" with a "j" sound'
         },
         {
           syllables: ['li', 'ming'],
-          expected: '"li" is said rhymes with tree, "ming" is said rhymes with ring'
+          expected: 'li rhymes with "tree", ming rhymes with "ring"'
         },
         {
           syllables: ['zhao', 'zao'],
-          expected: '"zhao" is said rhymes with "wow" but starts with "j", "zao" is said rhymes with "now" but starts with "z"'
+          expected: 'zhao rhymes with "wow" with a "j" sound, zao rhymes with "now" but starts with "z"'
         }
       ];
 
@@ -148,7 +148,7 @@ describe('Pinyin Utilities', () => {
 
     test('handles syllables without pronunciation', () => {
       const result = formatPronunciationResult(['xyz']);
-      expect(result).toBe('"xyz" (pronunciation not found)');
+      expect(result).toBe('xyz (pronunciation not found)');
     });
   });
 }); 
