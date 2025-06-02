@@ -128,15 +128,15 @@ describe('Pinyin Utilities', () => {
       const cases = [
         {
           syllables: ['zhang'],
-          expected: '"zhang" is said rhymes with "song" but starts with "j"'
+          expected: '"zhang" is said rhymes with \'song\' but starts with \'j\''
         },
         {
           syllables: ['li', 'ming'],
-          expected: '"li" is said rhymes with tree, "ming" is said rhymes with ring'
+          expected: '"li" is said just like the name \'Lee\', "ming" is said rhymes with \'ring\''
         },
         {
           syllables: ['zhao', 'zao'],
-          expected: '"zhao" is said rhymes with "wow" but starts with "j", "zao" is said rhymes with "now" but starts with "z"'
+          expected: '"zhao" is said starts with j sound and then rhymes with \'how\', "zao" is said starts with z sound and then rhymes with \'how\''
         }
       ];
 
