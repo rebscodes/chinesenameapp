@@ -170,6 +170,7 @@ describe('App Integration', () => {
     });
 
     expect(screen.getByText(/rhymes with 'song' but starts with 'j'/i)).toBeInTheDocument();
+
   });
 
   test('handles invalid input with error message', async () => {

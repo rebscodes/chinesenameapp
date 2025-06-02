@@ -1609,6 +1609,6 @@ export const phonemeMap = {
   },
   "zuo": {
     "sound": "zwoh",
-    "description": "starts with z then w sound, and then says 'oh'"
+    "description": "starts with z then w sound, and then says 'oh'
   }
 }
