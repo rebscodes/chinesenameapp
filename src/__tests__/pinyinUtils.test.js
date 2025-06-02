@@ -128,7 +128,7 @@ describe('Pinyin Utilities', () => {
       const cases = [
         {
           syllables: ['zhang'],
-          expected: '"zhang" rhymes with \'song\' but starts with \'j\''
+          expected: '"zhang" starts with j sound and rhymes with \'song\''
         },
         {
           syllables: ['li', 'ming'],
