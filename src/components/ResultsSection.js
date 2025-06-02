@@ -12,9 +12,21 @@ const ResultsSection = ({ pronunciation }) => {
       </div>
       
       <div className="bg-green-50 rounded-xl p-4">
-        <p className="text-green-800 text-lg leading-relaxed">
-          {pronunciation}
-        </p>
+        {pronunciation.split('\n').map((line, index) => {
+          // Find the index of the first space after the closing quote
+          const quoteEndIndex = line.indexOf('" ');
+          const syllable = line.substring(0, quoteEndIndex + 1);
+          const description = line.substring(quoteEndIndex + 2);
+          
+          return (
+            <div key={index} className="mb-4 last:mb-0">
+              <p className="text-green-800 text-lg">
+                <span className="font-semibold">{syllable}</span>
+                {' ' + description}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

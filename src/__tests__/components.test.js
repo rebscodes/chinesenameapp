@@ -107,12 +107,15 @@ describe('InputSection Component', () => {
 
 describe('ResultsSection Component', () => {
   test('renders pronunciation guide with correct styling', () => {
-    const pronunciation = '"zhang" is said rhymes with \'song\' but starts with \'j\'';
+    const pronunciation = '"zhang" rhymes with \'song\' but starts with \'j\'';
     render(<ResultsSection pronunciation={pronunciation} />);
     
     // Check for heading and content
     expect(screen.getByText('Pronunciation Guide')).toBeInTheDocument();
-    expect(screen.getByText(pronunciation)).toBeInTheDocument();
+    
+    // Check for the syllable and description separately
+    expect(screen.getByText('"zhang"')).toBeInTheDocument();
+    expect(screen.getByText(/rhymes with 'song' but starts with 'j'/)).toBeInTheDocument();
     
     // Check for icon
     const icon = document.querySelector('.lucide-book-open');
@@ -125,7 +128,7 @@ describe('ResultsSection Component', () => {
   });
 
   test('applies correct styling classes', () => {
-    const pronunciation = 'Test pronunciation';
+    const pronunciation = '"zhang" rhymes with \'song\' but starts with \'j\'';
     const { container } = render(<ResultsSection pronunciation={pronunciation} />);
     
     expect(container.firstChild).toHaveClass('bg-white', 'rounded-2xl', 'shadow-lg');
