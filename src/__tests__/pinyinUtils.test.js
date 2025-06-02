@@ -137,7 +137,6 @@ describe('Pinyin Utilities', () => {
         {
           syllables: ['zhao', 'zao'],
           expected: '"zhao" is said starts with j sound and then rhymes with \'how\', "zao" is said starts with z sound and then rhymes with \'how\''
-
         }
       ];
 
@@ -149,7 +148,7 @@ describe('Pinyin Utilities', () => {
 
     test('handles syllables without pronunciation', () => {
       const result = formatPronunciationResult(['xyz']);
-      expect(result).toBe('xyz (pronunciation not found)');
+      expect(result).toBe('"xyz" (pronunciation not found)');
     });
   });
 }); 
