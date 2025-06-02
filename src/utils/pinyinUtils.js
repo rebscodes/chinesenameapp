@@ -68,8 +68,8 @@ export const formatPronunciationError = (syllables, notFoundSyllables) => {
 export const formatPronunciationResult = (syllables) => {
   return syllables.map(syllable => {
     if (phonemeMap[syllable]) {
-      return `${syllable} ${phonemeMap[syllable].description}`;
+      return `"${syllable}" is said ${phonemeMap[syllable].description}`;
     }
-    return `${syllable} (pronunciation not found)`;
+    return `"${syllable}" (pronunciation not found)`;
   }).join(', ');
 }; 
