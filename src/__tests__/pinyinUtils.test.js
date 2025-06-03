@@ -132,7 +132,7 @@ describe('Pinyin Utilities', () => {
         },
         {
           syllables: ['li', 'ming'],
-          expected: '"li" just like the name \'Lee\'\n"ming" rhymes with \'ring\''
+          expected: '"li" just like the name \'Lee\'\n"ming" like in \'mingle\''
         },
         {
           syllables: ['zhao', 'zao'],

@@ -528,7 +528,7 @@ export const phonemeMap = {
   },
   "jing": {
     "sound": "jing",
-    "description": "rhymes with 'ring'"
+    "description": "like 'jingle'"
   },
   "jiu": {
     "sound": "jee-oh",
@@ -688,7 +688,7 @@ export const phonemeMap = {
   },
   "ling": {
     "sound": "ling",
-    "description": "rhymes with 'ring'"
+    "description": "like 'to linger'"
   },
   "liu": {
     "sound": "lee-oh",
@@ -788,7 +788,7 @@ export const phonemeMap = {
   },
   "ming": {
     "sound": "ming",
-    "description": "rhymes with 'ring'"
+    "description": "like in 'mingle'"
   },
   "miu": {
     "sound": "mee-oh",
@@ -868,7 +868,7 @@ export const phonemeMap = {
   },
   "ning": {
     "sound": "ning",
-    "description": "rhymes with 'ring'"
+    "description": "rhymes with 'sing'"
   },
   "niu": {
     "sound": "nee-oh",
@@ -1276,7 +1276,7 @@ export const phonemeMap = {
   },
   "ting": {
     "sound": "ting",
-    "description": "rhymes with 'ring'"
+    "description": "rhymes with 'sing'"
   },
   "tong": {
     "sound": "tong",
@@ -1328,7 +1328,7 @@ export const phonemeMap = {
   },
   "wen": {
     "sound": "wun",
-    "description": "sounds like 'to wonder'"
+    "description": "sounds like the word 'when'"
   },
   "weng": {
     "sound": "wung",
@@ -1372,7 +1372,7 @@ export const phonemeMap = {
   },
   "xing": {
     "sound": "shing",
-    "description": "rhymes with 'ring'"
+    "description": "rhymes with 'sing'"
   },
   "xiong": {
     "sound": "shee-ong",
@@ -1432,7 +1432,7 @@ export const phonemeMap = {
   },
   "ying": {
     "sound": "ying",
-    "description": "rhymes with 'ring'"
+    "description": "rhymes with 'sing'"
   },
   "yo": {
     "sound": "yoh",
@@ -1604,10 +1604,10 @@ export const phonemeMap = {
   },
   "zun": {
     "sound": "zwun",
-    "description": "starts with z then w sound, and then rhymes with 'moon'"
+    "description": "starts with the 'z' sound, then rhymes with the word 'moon'"
   },
   "zuo": {
     "sound": "zwoh",
-    "description": "starts with z then w sound, and then says 'oh'"
+    "description": "starts with the z sound, then the word woah'"
   }
 }
