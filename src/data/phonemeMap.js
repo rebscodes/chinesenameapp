@@ -1532,7 +1532,7 @@ export const phonemeMap = {
   },
   "zheng": {
     "sound": "jung",
-    "description": "starts with j sound and then rhymes with 'sung'"
+    "description": "like 'jung' in 'jungle'"
   },
   "zhi": {
     "sound": "jur",
