@@ -5,11 +5,11 @@ export const phonemeMap = {
   },
   "an": {
     "sound": "ahn", 
-    "description": "like 'on' but with 'ah' sound, similar to 'dawn'"
+    "description": "like the 'on' in 'upon'"
   },
   "ang": {
     "sound": "ahng",
-    "description": "like 'song' but with 'ah' sound instead of 'o'"
+    "description": "rhymes with 'song'"
   },
   "ao": {
     "sound": "ow",
@@ -21,7 +21,7 @@ export const phonemeMap = {
   },
   "bai": {
     "sound": "bye",
-    "description": "exactly like 'bye' in English"
+    "description": "just like 'bye' in English"
   },
   "ban": {
     "sound": "bahn",
@@ -33,7 +33,7 @@ export const phonemeMap = {
   },
   "bao": {
     "sound": "bow",
-    "description": "like to bow one's head"
+    "description": "like to 'bow one's head'"
   },
   "bei": {
     "sound": "bay",
@@ -57,7 +57,6 @@ export const phonemeMap = {
   },
   "bing": {
     "sound": "bing",
-    "description": "rhymes with 'ring' but starts with 'b'"
   },
   "bo": {
     "sound": "bwoh",
@@ -69,23 +68,23 @@ export const phonemeMap = {
   },
   "ca": {
     "sound": "tsah",
-    "description": "like 'saw' but starts with 'ts' sound"
+    "description": "starts with ts sound and rhymes with 'saw'"
   },
   "cai": {
     "sound": "tsigh",
-    "description": "like 'sigh' but starts with 'ts' sound"
+    "description": "starts with ts sound and rhymes with 'sigh'"
   },
   "can": {
     "sound": "tsahn",
-    "description": "rhymes with dawn but with a ts sound"
+    "description": "starts with ts sound and rhymes with 'dawn'"
   },
   "cang": {
     "sound": "tsahng",
-    "description": "rhymes with 'song' but starts with ts sound"
+    "description": "starts with ts sound and rhymes with 'song'"
   },
   "cao": {
     "sound": "tsow",
-    "description": "like 'cow' but starts with ts sound"
+    "description": "starts with ts sound and rhymes with 'cow'"
   },
   "ce": {
     "sound": "tsuh",
@@ -93,11 +92,11 @@ export const phonemeMap = {
   },
   "cen": {
     "sound": "tsun",
-    "description": "like 'sun' but starts with ts sound"
+    "description": "starts with ts sound and rhymes with 'sun'"
   },
   "ceng": {
     "sound": "tsung",
-    "description": "rhymes with 'sung' but starts with ts sound"
+    "description": "starts with ts sound and rhymes with 'sung'"
   },
   "cha": {
     "sound": "chah",
@@ -177,15 +176,15 @@ export const phonemeMap = {
   },
   "cong": {
     "sound": "tsong",
-    "description": "rhymes with 'song' but starts with ts sound"
+    "description": "starts with ts sound and rhymes with 'song'"
   },
   "cou": {
     "sound": "tsoh",
-    "description": "like 'show' but starts with ts sound"
+    "description": "starts with ts sound, rhymes with 'show'"
   },
   "cu": {
     "sound": "tsoo",
-    "description": "like 'zoo' but starts with ts sound"
+    "description": "starts with ts sound, rhymes with 'zoo'"
   },
   "cuan": {
     "sound": "tswahn",
@@ -1513,7 +1512,7 @@ export const phonemeMap = {
   },
   "zhang": {
     "sound": "jong",
-    "description": "rhymes with 'song' but starts with 'j'"
+    "description": "starts with j sound and rhymes with 'song'"
   },
   "zhao": {
     "sound": "jow",
@@ -1584,8 +1583,8 @@ export const phonemeMap = {
     "description": "just the z sound"
   },
   "zong": {
-    "sound": "zong",
-    "description": "starts with z sound and then rhymes with 'song'"
+    "sound": "tsong",
+    "description": "starts with ts sound and rhymes with 'song'"
   },
   "zou": {
     "sound": "zoh",
