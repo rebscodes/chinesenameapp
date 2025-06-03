@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import InputSection from '../components/InputSection';
 import ResultsSection from '../components/ResultsSection';
 import { phonemeMap } from '../data/phonemeMap';
-import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from './testUtils';
+import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from '../utils/testUtils';
 
 describe('Header Component', () => {
   test('renders header with correct text and styling', () => {

@@ -1,6 +1,6 @@
 import { getPronunciation, formatPronunciationError, formatPronunciationResult } from '../utils/pinyinUtils';
 import { phonemeMap } from '../data/phonemeMap';
-import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from './testUtils';
+import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from '../utils/testUtils';
 
 describe('Pinyin Utilities', () => {
   describe('getPronunciation', () => {
