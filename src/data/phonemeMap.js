@@ -540,7 +540,7 @@ export const phonemeMap = {
   },
   "juan": {
     "sound": "joo-ahn",
-    "description": "starts with 'joo' and then rhymes with 'dawn'"
+    "description": "starts with the sound 'joo', then the word 'when'"
   },
   "jue": {
     "sound": "joo-eh",
@@ -1016,19 +1016,19 @@ export const phonemeMap = {
   },
   "qu": {
     "sound": "choo",
-    "description": "like the start of the word 'choose'"
+    "description": "starts with the ch sound, then has an umlaut like adieu"
   },
   "quan": {
     "sound": "choo-ahn",
-    "description": "starts with 'choo' and then rhymes with 'dawn'"
+    "description": "starts with the ch sound, then the word 'when'"
   },
   "que": {
     "sound": "choo-eh",
-    "description": "starts with 'choo' and then says 'eh'"
+    "description": "starts with 'chew' and then says 'eh'"
   },
   "qun": {
     "sound": "choon",
-    "description": "starts with 'choo' and then rhymes with 'moon'"
+    "description": "starts with 'chew' and then rhymes with 'moon'"
   },
   "ran": {
     "sound": "rahn",
@@ -1384,15 +1384,15 @@ export const phonemeMap = {
   },
   "xu": {
     "sound": "shoo",
-    "description": "like 'shoo' to chase something away"
+    "description": "starts with the sh sound, then has an umlaut like adieu"
   },
   "xuan": {
     "sound": "shoo-ahn",
-    "description": "starts with 'shoo' and then rhymes with 'dawn'"
+    "description": "starts with the word 'shoe' and then the word 'when'"
   },
   "xue": {
     "sound": "shoo-eh",
-    "description": "starts with 'shoo' and then says 'eh'"
+    "description": "starts with 'shoe' and then says 'eh'"
   },
   "xun": {
     "sound": "shoon",
@@ -1456,7 +1456,7 @@ export const phonemeMap = {
   },
   "yue": {
     "sound": "yoo-eh",
-    "description": "starts with 'yoo' and then says 'eh'"
+    "description": "starts with the word 'yoo' and then says 'eh'"
   },
   "yun": {
     "sound": "yoon",
