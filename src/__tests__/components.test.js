@@ -172,7 +172,7 @@ describe('App Integration', () => {
       expect(screen.getByText(/Pronunciation Guide/i)).toBeInTheDocument();
     });
 
-    expect(screen.getByText(/rhymes with 'song' but starts with 'j'/i)).toBeInTheDocument();
+    expect(screen.getByText(/starts with j sound and rhymes with 'song'/i)).toBeInTheDocument();
 
   });
 
