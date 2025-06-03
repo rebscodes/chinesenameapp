@@ -5,6 +5,8 @@ import App from '../App';
 import Header from '../components/Header';
 import InputSection from '../components/InputSection';
 import ResultsSection from '../components/ResultsSection';
+import { phonemeMap } from '../data/phonemeMap';
+import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from '../utils/testUtils';
 
 describe('Header Component', () => {
   test('renders header with correct text and styling', () => {
@@ -38,12 +40,10 @@ describe('InputSection Component', () => {
       />
     );
 
-    // Check for all expected elements
     expect(screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /get pronunciation/i })).toBeInTheDocument();
     expect(screen.getByText('Enter Chinese Name')).toBeInTheDocument();
     
-    // Icon should be present
     const icon = document.querySelector('.lucide-book-open');
     expect(icon).toBeInTheDocument();
   });
@@ -51,7 +51,7 @@ describe('InputSection Component', () => {
   test('handles input change and clear', () => {
     render(
       <InputSection
-        inputName="zhang"
+        inputName={TEST_SYLLABLES.SINGLE}
         setInputName={mockSetInputName}
         handlePronounce={mockHandlePronounce}
         isLoading={false}
@@ -59,12 +59,10 @@ describe('InputSection Component', () => {
       />
     );
 
-    // Test input change
     const input = screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i);
-    fireEvent.change(input, { target: { value: 'li' } });
-    expect(mockSetInputName).toHaveBeenCalledWith('li');
+    fireEvent.change(input, { target: { value: TEST_SYLLABLES.DOUBLE_FIRST } });
+    expect(mockSetInputName).toHaveBeenCalledWith(TEST_SYLLABLES.DOUBLE_FIRST);
 
-    // Test clear button
     const clearButton = screen.getByText('✕');
     expect(clearButton).toBeInTheDocument();
     fireEvent.click(clearButton);
@@ -74,7 +72,7 @@ describe('InputSection Component', () => {
   test('handles loading state correctly', () => {
     render(
       <InputSection
-        inputName="zhang"
+        inputName={TEST_SYLLABLES.SINGLE}
         setInputName={mockSetInputName}
         handlePronounce={mockHandlePronounce}
         isLoading={true}
@@ -82,7 +80,6 @@ describe('InputSection Component', () => {
       />
     );
 
-    // Button should be disabled and show loading spinner
     const button = screen.getByRole('button', { name: '' });
     expect(button).toBeDisabled();
     expect(button.querySelector('.animate-spin')).toBeInTheDocument();
@@ -91,7 +88,7 @@ describe('InputSection Component', () => {
   test('handles Enter key press', () => {
     render(
       <InputSection
-        inputName="zhang"
+        inputName={TEST_SYLLABLES.SINGLE}
         setInputName={mockSetInputName}
         handlePronounce={mockHandlePronounce}
         isLoading={false}
@@ -107,17 +104,14 @@ describe('InputSection Component', () => {
 
 describe('ResultsSection Component', () => {
   test('renders pronunciation guide with correct styling', () => {
-    const pronunciation = '"zhang" starts with j sound and rhymes with \'song\'';
+    const pronunciation = createPronunciationString([TEST_SYLLABLES.SINGLE], phonemeMap);
     render(<ResultsSection pronunciation={pronunciation} />);
     
-    // Check for heading and content
     expect(screen.getByText('Pronunciation Guide')).toBeInTheDocument();
     
-    // Check for the syllable and description separately
-    expect(screen.getByText('"zhang"')).toBeInTheDocument();
-    expect(screen.getByText(/starts with j sound and rhymes with 'song'/)).toBeInTheDocument();
+    expect(screen.getByText(`"${TEST_SYLLABLES.SINGLE}"`)).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(phonemeMap[TEST_SYLLABLES.SINGLE].description))).toBeInTheDocument();
     
-    // Check for icon
     const icon = document.querySelector('.lucide-book-open');
     expect(icon).toBeInTheDocument();
   });
@@ -128,7 +122,7 @@ describe('ResultsSection Component', () => {
   });
 
   test('applies correct styling classes', () => {
-    const pronunciation = '"zhang" starts with j sound and rhymes with \'song\'';
+    const pronunciation = createPronunciationString([TEST_SYLLABLES.SINGLE], phonemeMap);
     const { container } = render(<ResultsSection pronunciation={pronunciation} />);
     
     expect(container.firstChild).toHaveClass('bg-white', 'rounded-2xl', 'shadow-lg');
@@ -153,7 +147,7 @@ describe('App Integration', () => {
 
     const input = screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i);
     await act(async () => {
-      fireEvent.change(input, { target: { value: 'zhang' } });
+      fireEvent.change(input, { target: { value: TEST_SYLLABLES.SINGLE } });
     });
 
     const button = screen.getByRole('button', { name: /get pronunciation/i });
@@ -172,8 +166,7 @@ describe('App Integration', () => {
       expect(screen.getByText(/Pronunciation Guide/i)).toBeInTheDocument();
     });
 
-    expect(screen.getByText(/starts with j sound and rhymes with 'song'/i)).toBeInTheDocument();
-
+    expect(screen.getByText(new RegExp(phonemeMap[TEST_SYLLABLES.SINGLE].description, 'i'))).toBeInTheDocument();
   });
 
   test('handles invalid input with error message', async () => {

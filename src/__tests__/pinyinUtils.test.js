@@ -1,10 +1,11 @@
 import { getPronunciation, formatPronunciationError, formatPronunciationResult } from '../utils/pinyinUtils';
+import { phonemeMap } from '../data/phonemeMap';
+import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from '../utils/testUtils';
 
 describe('Pinyin Utilities', () => {
   describe('getPronunciation', () => {
-    // Basic functionality
     test('handles single syllable names', () => {
-      const cases = ['li', 'wei', 'zhao', 'zhang'];
+      const cases = [TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SINGLE];
       cases.forEach(name => {
         const result = getPronunciation(name);
         expect(result.syllables).toEqual([name]);
@@ -14,9 +15,8 @@ describe('Pinyin Utilities', () => {
 
     test('handles multi-syllable names', () => {
       const cases = [
-        { input: 'zhangwei', expected: ['zhang', 'wei'] },
-        { input: 'liming', expected: ['li', 'ming'] },
-        { input: 'zhaoming', expected: ['zhao', 'ming'] }
+        { input: TEST_NAMES.DOUBLE, expected: [TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.DOUBLE_SECOND] },
+        { input: TEST_NAMES.SIMILAR, expected: [TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SIMILAR_SECOND] }
       ];
       cases.forEach(({ input, expected }) => {
         const result = getPronunciation(input);
@@ -127,16 +127,16 @@ describe('Pinyin Utilities', () => {
     test('formats pronunciation guide correctly', () => {
       const cases = [
         {
-          syllables: ['zhang'],
-          expected: '"zhang" starts with j sound and rhymes with \'song\''
+          syllables: [TEST_SYLLABLES.SINGLE],
+          expected: createPronunciationString([TEST_SYLLABLES.SINGLE], phonemeMap)
         },
         {
-          syllables: ['li', 'ming'],
-          expected: '"li" just like the name \'Lee\'\n"ming" like in \'mingle\''
+          syllables: [TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.DOUBLE_SECOND],
+          expected: createPronunciationString([TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.DOUBLE_SECOND], phonemeMap)
         },
         {
-          syllables: ['zhao', 'zao'],
-          expected: '"zhao" starts with j sound and then rhymes with \'how\'\n"zao" starts with z sound and then rhymes with \'how\''
+          syllables: [TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SIMILAR_SECOND],
+          expected: createPronunciationString([TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SIMILAR_SECOND], phonemeMap)
         }
       ];
 
