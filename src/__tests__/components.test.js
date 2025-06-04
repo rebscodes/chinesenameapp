@@ -187,7 +187,7 @@ describe('App Integration', () => {
     });
 
     await waitFor(() => {
-      expect(screen.getByText(/Could not parse these characters into pinyin: "xyz"/i)).toBeInTheDocument();
+      expect(screen.getByText('Could not parse "xyz" into valid pinyin.')).toBeInTheDocument();
     });
   });
 

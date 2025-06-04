@@ -108,30 +108,34 @@ describe('Pinyin Utilities', () => {
           // Single character unparseable input
           syllables: ['x', 'y', 'z'],
           notFound: ['x', 'y', 'z'],
-          expected: 'Could not parse these characters into pinyin: "xyz". Try checking the spelling or breaking the name into different syllables.'
+          input: 'xyz',
+          expected: 'Could not parse "xyz" into valid pinyin.'
         },
         {
           // Mixed valid and unparseable input
           syllables: ['zhang', 'x', 'y', 'z'],
           notFound: ['x', 'y', 'z'],
-          expected: 'Found pronunciation for: "zhang". Could not parse these characters into pinyin: "xyz". Try checking the spelling or breaking the name into different syllables.'
+          input: 'zhangxyz',
+          expected: 'Could not parse "zhangxyz" into valid pinyin.'
         },
         {
           // Invalid multi-character syllables
           syllables: ['zhang', 'abcd'],
           notFound: ['abcd'],
-          expected: 'Found pronunciation for: "zhang". Could not find pronunciation for: "abcd". Try checking the spelling or breaking the name into different syllables.'
+          input: 'zhangabcd',
+          expected: 'Could not parse "zhangabcd" into valid pinyin.'
         },
         {
           // Mixed unparseable characters and invalid syllables
           syllables: ['zhang', 'x', 'y', 'abcd'],
           notFound: ['x', 'y', 'abcd'],
-          expected: 'Found pronunciation for: "zhang". Could not parse these characters into pinyin: "xy". Could not find pronunciation for: "abcd". Try checking the spelling or breaking the name into different syllables.'
+          input: 'zhangxyabcd',
+          expected: 'Could not parse "zhangxyabcd" into valid pinyin.'
         }
       ];
 
-      cases.forEach(({ syllables, notFound, expected }) => {
-        const result = formatPronunciationError(syllables, notFound);
+      cases.forEach(({ syllables, notFound, input, expected }) => {
+        const result = formatPronunciationError(syllables, notFound, input);
         expect(result).toBe(expected);
       });
     });

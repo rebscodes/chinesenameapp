@@ -58,28 +58,8 @@ export const getPronunciation = (name) => {
   return { syllables, notFoundSyllables };
 };
 
-export const formatPronunciationError = (syllables, notFoundSyllables) => {
-  const validSyllables = syllables.filter(s => !notFoundSyllables.includes(s));
-  const unparseableChars = notFoundSyllables.filter(s => s.length === 1).join('');
-  const invalidSyllables = notFoundSyllables.filter(s => s.length > 1).join('", "');
-  
-  let errorMessage = '';
-  
-  if (validSyllables.length) {
-    errorMessage += `Found pronunciation for: "${validSyllables.join('", "')}". `;
-  }
-  
-  if (unparseableChars) {
-    errorMessage += `Could not parse these characters into pinyin: "${unparseableChars}". `;
-  }
-  
-  if (invalidSyllables) {
-    errorMessage += `Could not find pronunciation for: "${invalidSyllables}". `;
-  }
-  
-  errorMessage += 'Try checking the spelling or breaking the name into different syllables.';
-  
-  return errorMessage;
+export const formatPronunciationError = (syllables, notFoundSyllables, originalInput) => {
+  return `Could not parse "${originalInput}" into valid pinyin.`;
 };
 
 export const formatPronunciationResult = (syllables) => {
