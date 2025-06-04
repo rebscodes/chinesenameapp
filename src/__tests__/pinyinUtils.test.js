@@ -102,17 +102,31 @@ describe('Pinyin Utilities', () => {
   });
 
   describe('formatPronunciationError', () => {
-    test('formats error message for invalid syllables', () => {
+    test('formats error message for different types of invalid input', () => {
       const cases = [
         {
-          syllables: ['zhang', 'xyz'],
-          notFound: ['xyz'],
-          expected: 'Found pronunciation for: "zhang". Could not find pronunciation for: "xyz". Try checking the spelling or breaking the name into different syllables.'
+          // Single character unparseable input
+          syllables: ['x', 'y', 'z'],
+          notFound: ['x', 'y', 'z'],
+          expected: 'Could not parse these characters into pinyin: "xyz". Try checking the spelling or breaking the name into different syllables.'
         },
         {
-          syllables: ['abc', '123'],
-          notFound: ['abc', '123'],
-          expected: 'Found pronunciation for: . Could not find pronunciation for: "abc", "123". Try checking the spelling or breaking the name into different syllables.'
+          // Mixed valid and unparseable input
+          syllables: ['zhang', 'x', 'y', 'z'],
+          notFound: ['x', 'y', 'z'],
+          expected: 'Found pronunciation for: "zhang". Could not parse these characters into pinyin: "xyz". Try checking the spelling or breaking the name into different syllables.'
+        },
+        {
+          // Invalid multi-character syllables
+          syllables: ['zhang', 'abcd'],
+          notFound: ['abcd'],
+          expected: 'Found pronunciation for: "zhang". Could not find pronunciation for: "abcd". Try checking the spelling or breaking the name into different syllables.'
+        },
+        {
+          // Mixed unparseable characters and invalid syllables
+          syllables: ['zhang', 'x', 'y', 'abcd'],
+          notFound: ['x', 'y', 'abcd'],
+          expected: 'Found pronunciation for: "zhang". Could not parse these characters into pinyin: "xy". Could not find pronunciation for: "abcd". Try checking the spelling or breaking the name into different syllables.'
         }
       ];
 
