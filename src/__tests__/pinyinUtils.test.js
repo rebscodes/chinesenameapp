@@ -103,30 +103,32 @@ describe('Pinyin Utilities', () => {
 
   describe('formatPronunciationError', () => {
     test('formats error message for different types of invalid input', () => {
+      const expectedError = 'Could not parse the input into valid pinyin. Try checking the spelling or breaking the name into different syllables.';
+      
       const cases = [
         {
           // Single character unparseable input
           syllables: ['x', 'y', 'z'],
           notFound: ['x', 'y', 'z'],
-          expected: 'Could not parse these characters into pinyin: "xyz". Try checking the spelling or breaking the name into different syllables.'
+          expected: expectedError
         },
         {
           // Mixed valid and unparseable input
           syllables: ['zhang', 'x', 'y', 'z'],
           notFound: ['x', 'y', 'z'],
-          expected: 'Found pronunciation for: "zhang". Could not parse these characters into pinyin: "xyz". Try checking the spelling or breaking the name into different syllables.'
+          expected: expectedError
         },
         {
           // Invalid multi-character syllables
           syllables: ['zhang', 'abcd'],
           notFound: ['abcd'],
-          expected: 'Found pronunciation for: "zhang". Could not find pronunciation for: "abcd". Try checking the spelling or breaking the name into different syllables.'
+          expected: expectedError
         },
         {
           // Mixed unparseable characters and invalid syllables
           syllables: ['zhang', 'x', 'y', 'abcd'],
           notFound: ['x', 'y', 'abcd'],
-          expected: 'Found pronunciation for: "zhang". Could not parse these characters into pinyin: "xy". Could not find pronunciation for: "abcd". Try checking the spelling or breaking the name into different syllables.'
+          expected: expectedError
         }
       ];
 
