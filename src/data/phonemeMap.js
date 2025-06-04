@@ -124,7 +124,7 @@ export const phonemeMap = {
   },
   "chen": {
     "sound": "chun",
-    "description": "like 'sun'"
+    "description": "rhymes with 'sun'"
   },
   "cheng": {
     "sound": "chung",
@@ -144,7 +144,7 @@ export const phonemeMap = {
   },
   "chu": {
     "sound": "choo",
-    "description": "like 'choo-choo' train sound"
+    "description": "like a 'choo-choo' train"
   },
   "chuai": {
     "sound": "chwigh",
@@ -204,7 +204,7 @@ export const phonemeMap = {
   },
   "da": {
     "sound": "dah",
-    "description": "has the ah sound like in 'dawn'"
+    "description": "like 'ta-da!'"
   },
   "dai": {
     "sound": "digh",
@@ -256,7 +256,7 @@ export const phonemeMap = {
   },
   "ding": {
     "sound": "ding",
-    "description": "exactly like 'ding' as in bell sound"
+    "description": "like the bell sound 'ding'"
   },
   "diu": {
     "sound": "dee-oh",
@@ -340,7 +340,7 @@ export const phonemeMap = {
   },
   "fou": {
     "sound": "foh",
-    "description": "like 'friend or fou'"
+    "description": "like 'friend or foe'"
   },
   "fu": {
     "sound": "foo",
@@ -732,7 +732,7 @@ export const phonemeMap = {
   },
   "ma": {
     "sound": "mah",
-    "description": "like calling your 'ma' (mother)"
+    "description": "like 'ma and pa'"
   },
   "mai": {
     "sound": "migh",
@@ -792,7 +792,7 @@ export const phonemeMap = {
   },
   "miu": {
     "sound": "mee-oh",
-    "description": "like 'mew' as in a cat sound"
+    "description": "like a cat goes 'mew'"
   },
   "mo": {
     "sound": "mwoh",
@@ -808,7 +808,7 @@ export const phonemeMap = {
   },
   "na": {
     "sound": "nah",
-    "description": "like saying 'nah' (no way)"
+    "description": "like saying 'nah' as in 'no way'"
   },
   "nai": {
     "sound": "nigh",
@@ -912,7 +912,7 @@ export const phonemeMap = {
   },
   "pa": {
     "sound": "pah",
-    "description": "like the beginning of 'father'"
+    "description": "like 'ma' and 'pa'"
   },
   "pai": {
     "sound": "pigh",
