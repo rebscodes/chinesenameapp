@@ -7,6 +7,7 @@ import InputSection from '../components/InputSection';
 import ResultsSection from '../components/ResultsSection';
 import { phonemeMap } from '../data/phonemeMap';
 import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from '../utils/testUtils';
+import { EXAMPLE_NAMES_STRING } from '../utils/pinyinUtils';
 
 describe('Header Component', () => {
   test('renders header with correct text and styling', () => {
@@ -40,7 +41,7 @@ describe('InputSection Component', () => {
       />
     );
 
-    expect(screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'))).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /get pronunciation/i })).toBeInTheDocument();
     expect(screen.getByText('Enter Chinese Name')).toBeInTheDocument();
     
@@ -59,7 +60,7 @@ describe('InputSection Component', () => {
       />
     );
 
-    const input = screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i);
+    const input = screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'));
     fireEvent.change(input, { target: { value: TEST_SYLLABLES.DOUBLE_FIRST } });
     expect(mockSetInputName).toHaveBeenCalledWith(TEST_SYLLABLES.DOUBLE_FIRST);
 
@@ -96,7 +97,7 @@ describe('InputSection Component', () => {
       />
     );
 
-    const input = screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i);
+    const input = screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'));
     fireEvent.keyPress(input, { key: 'Enter', code: 13, charCode: 13 });
     expect(mockHandlePronounce).toHaveBeenCalled();
   });
@@ -145,7 +146,7 @@ describe('App Integration', () => {
   test('full app flow with loading state', async () => {
     render(<App />);
 
-    const input = screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i);
+    const input = screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'));
     await act(async () => {
       fireEvent.change(input, { target: { value: TEST_SYLLABLES.SINGLE } });
     });
@@ -172,7 +173,7 @@ describe('App Integration', () => {
   test('handles invalid input with error message', async () => {
     render(<App />);
 
-    const input = screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i);
+    const input = screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'));
     await act(async () => {
       fireEvent.change(input, { target: { value: 'xyz' } });
     });
@@ -194,7 +195,7 @@ describe('App Integration', () => {
   test('clears input and results', async () => {
     render(<App />);
 
-    const input = screen.getByPlaceholderText(/e\.g\., zhengxun, weiming, li/i);
+    const input = screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'));
     await act(async () => {
       fireEvent.change(input, { target: { value: 'zhang' } });
     });
