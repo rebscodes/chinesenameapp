@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, BookOpen } from 'lucide-react';
+import { EXAMPLE_NAMES_STRING } from '../utils/pinyinUtils';
 
 const InputSection = ({ inputName, setInputName, handlePronounce, isLoading, clearInput }) => (
   <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4">
@@ -14,7 +15,7 @@ const InputSection = ({ inputName, setInputName, handlePronounce, isLoading, cle
         value={inputName}
         onChange={(e) => setInputName(e.target.value)}
         onKeyPress={(e) => e.key === 'Enter' && handlePronounce()}
-        placeholder="e.g., zhengxun, weiming, li"
+        placeholder={`e.g., ${EXAMPLE_NAMES_STRING}`}
         className="w-full px-4 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none transition-colors"
       />
       {inputName && (
