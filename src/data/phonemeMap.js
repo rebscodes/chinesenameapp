@@ -1,7 +1,7 @@
 export const phonemeMap = {
   "ai": {
     "sound": "eye",
-    "description": "like the letter i"
+    "description": "like seeing 'eye to eye"
   },
   "an": {
     "sound": "ahn", 
