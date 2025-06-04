@@ -58,8 +58,8 @@ export const getPronunciation = (name) => {
   return { syllables, notFoundSyllables };
 };
 
-export const formatPronunciationError = (syllables, notFoundSyllables) => {
-  return 'Could not parse the input into valid pinyin. Try checking the spelling or breaking the name into different syllables.';
+export const formatPronunciationError = (syllables, notFoundSyllables, originalInput) => {
+  return `Could not parse "${originalInput}" into valid pinyin.`;
 };
 
 export const formatPronunciationResult = (syllables) => {

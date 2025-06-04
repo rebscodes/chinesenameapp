@@ -103,37 +103,39 @@ describe('Pinyin Utilities', () => {
 
   describe('formatPronunciationError', () => {
     test('formats error message for different types of invalid input', () => {
-      const expectedError = 'Could not parse the input into valid pinyin. Try checking the spelling or breaking the name into different syllables.';
-      
       const cases = [
         {
           // Single character unparseable input
           syllables: ['x', 'y', 'z'],
           notFound: ['x', 'y', 'z'],
-          expected: expectedError
+          input: 'xyz',
+          expected: 'Could not parse "xyz" into valid pinyin.'
         },
         {
           // Mixed valid and unparseable input
           syllables: ['zhang', 'x', 'y', 'z'],
           notFound: ['x', 'y', 'z'],
-          expected: expectedError
+          input: 'zhangxyz',
+          expected: 'Could not parse "zhangxyz" into valid pinyin.'
         },
         {
           // Invalid multi-character syllables
           syllables: ['zhang', 'abcd'],
           notFound: ['abcd'],
-          expected: expectedError
+          input: 'zhangabcd',
+          expected: 'Could not parse "zhangabcd" into valid pinyin.'
         },
         {
           // Mixed unparseable characters and invalid syllables
           syllables: ['zhang', 'x', 'y', 'abcd'],
           notFound: ['x', 'y', 'abcd'],
-          expected: expectedError
+          input: 'zhangxyabcd',
+          expected: 'Could not parse "zhangxyabcd" into valid pinyin.'
         }
       ];
 
-      cases.forEach(({ syllables, notFound, expected }) => {
-        const result = formatPronunciationError(syllables, notFound);
+      cases.forEach(({ syllables, notFound, input, expected }) => {
+        const result = formatPronunciationError(syllables, notFound, input);
         expect(result).toBe(expected);
       });
     });

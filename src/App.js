@@ -27,7 +27,7 @@ const App = () => {
     })
       .then(({ syllables, notFoundSyllables }) => {
         if (notFoundSyllables.length > 0) {
-          setErrors([formatPronunciationError(syllables, notFoundSyllables)]);
+          setErrors([formatPronunciationError(syllables, notFoundSyllables, inputName.trim())]);
           setPronunciation('');
         } else {
           setPronunciation(formatPronunciationResult(syllables));
