@@ -33,13 +33,13 @@ const POSSIBLE_SYLLABLES = getAllPossibleSyllables();
 export const separatePinyinSyllables = (input) => {
   const words = input.toLowerCase().trim().split(/\s+/);
   let result = [];
-  
+
   for (const word of words) {
     let remaining = word;
-    
+
     while (remaining.length > 0) {
       let found = false;
-      
+
       // Try all possible syllables, starting with the longest ones
       for (const syllable of POSSIBLE_SYLLABLES) {
         if (remaining.startsWith(syllable) && phonemeMap[syllable]) {
@@ -49,7 +49,7 @@ export const separatePinyinSyllables = (input) => {
           break;
         }
       }
-      
+
       // If no valid syllable found, take one character
       if (!found) {
         result.push(remaining[0]);
@@ -57,7 +57,7 @@ export const separatePinyinSyllables = (input) => {
       }
     }
   }
-  
+
   return result;
 };
 
@@ -79,4 +79,4 @@ export const formatPronunciationResult = (syllables) => {
     }
     return `"${syllable}" (pronunciation not found)`;
   }).join('\n');
-}; 
+};

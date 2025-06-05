@@ -4,7 +4,7 @@ export const phonemeMap = {
     "description": "like seeing 'eye to eye'"
   },
   "an": {
-    "sound": "ahn", 
+    "sound": "ahn",
     "description": "like the 'on' in 'upon'"
   },
   "ang": {
@@ -622,7 +622,7 @@ export const phonemeMap = {
     "sound": "kwun",
     "description": "sounds like 'koo-wun, rhymes with 'moon'"
   },
-  "kuo": {  
+  "kuo": {
     "sound": "kwoh",
     "description": "sounds like 'koo-oh', like the start of the word 'quota'"
   },

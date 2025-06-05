@@ -18,4 +18,4 @@ const ExamplesSection = ({ setInputName }) => (
   </div>
 );
 
-export default ExamplesSection; 
+export default ExamplesSection;
