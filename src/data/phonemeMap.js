@@ -396,7 +396,7 @@ export const phonemeMap = {
   },
   "gua": {
     "sound": "gwah",
-    "description": "starts with g then w sound, and then says 'ah'"
+    "description": "like the start of the word 'guacamole'"
   },
   "guai": {
     "sound": "gwigh",
@@ -404,11 +404,11 @@ export const phonemeMap = {
   },
   "guan": {
     "sound": "gwahn",
-    "description": "starts with g then w sound, and then rhymes with 'dawn'"
+    "description": "like in the word 'iguana'"
   },
   "guang": {
     "sound": "gwahng",
-    "description": "starts with g then w sound, and then rhymes with 'song'"
+    "description": "starts with a gw sound, and then rhymes with 'song'"
   },
   "gui": {
     "sound": "gway",
@@ -416,11 +416,11 @@ export const phonemeMap = {
   },
   "gun": {
     "sound": "gwun",
-    "description": "starts with g then w sound, and then rhymes with 'moon'"
+    "description": "like the start of the word 'good' and then a soft n"
   },
   "guo": {
     "sound": "gwoh",
-    "description": "starts with g then w sound, and then says 'oh'"
+    "description": "sounds like 'goo-oh'"
   },
   "ha": {
     "sound": "hah",
@@ -472,19 +472,19 @@ export const phonemeMap = {
   },
   "hua": {
     "sound": "hwah",
-    "description": "starts with h then w sound, and then says 'ah'"
+    "description": "sounds like 'hoo-ah' said quickly"
   },
   "huai": {
     "sound": "hwigh",
-    "description": "starts with h and then the word 'why'"
+    "description": "starts with an h and then the word 'why'"
   },
   "huan": {
     "sound": "hwahn",
-    "description": "starts with h then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'hoo-ahn' said quickly"
   },
   "huang": {
     "sound": "hwahng",
-    "description": "starts with h then w sound, and then rhymes with 'song'"
+    "description": "sounds like 'hoo-ahng, rhymes with 'song'"
   },
   "hui": {
     "sound": "hway",
@@ -492,11 +492,11 @@ export const phonemeMap = {
   },
   "hun": {
     "sound": "hwun",
-    "description": "starts with h then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'hoo-wun, rhymes with 'moon'"
   },
   "huo": {
     "sound": "hwoh",
-    "description": "starts with h then w sound, and then says 'oh'"
+    "description": "sounds like 'hoo-oh'"
   },
   "ji": {
     "sound": "jee",
@@ -504,15 +504,15 @@ export const phonemeMap = {
   },
   "jia": {
     "sound": "jee-ah",
-    "description": "starts with 'jee' and then says 'ah'"
+    "description": "sounds like 'jee-ah'"
   },
   "jian": {
     "sound": "jee-yen",
-    "description": "like the letters G and N said quickly"
+    "description": "sounds like 'jee-yen'"
   },
   "jiang": {
     "sound": "jee-ahng",
-    "description": "starts with 'jee' and then rhymes with 'song'"
+    "description": "sounds like 'jee-ahng, rhymes with 'song'"
   },
   "jiao": {
     "sound": "jee-ow",
@@ -520,7 +520,7 @@ export const phonemeMap = {
   },
   "jie": {
     "sound": "jee-eh",
-    "description": "starts with 'jee' and then says 'eh'"
+    "description": "sounds like 'jee-eh'"
   },
   "jin": {
     "sound": "jean",
@@ -532,7 +532,7 @@ export const phonemeMap = {
   },
   "jiu": {
     "sound": "jee-oh",
-    "description": "like the letter G and then the letter O"
+    "description": "sounds like 'jee-oh'"
   },
   "ju": {
     "sound": "joo",
@@ -540,11 +540,11 @@ export const phonemeMap = {
   },
   "juan": {
     "sound": "joo-ahn",
-    "description": "starts with the sound 'joo', then the word 'when'"
+    "description": "sounds like 'joo-ahn'"
   },
   "jue": {
     "sound": "joo-eh",
-    "description": "starts with 'joo' and then says 'eh'"
+    "description": "sounds like 'joo-eh'"
   },
   "jun": {
     "sound": "joon",
@@ -600,31 +600,31 @@ export const phonemeMap = {
   },
   "kua": {
     "sound": "kwah",
-    "description": "starts with k then w sound, and then says 'ah'"
+    "description": "sounds like 'koo-ah'"
   },
   "kuai": {
     "sound": "kwigh",
-    "description": "starts with k and then the word 'why'"
+    "description": "starts with 'koo' and then the word 'why'"
   },
   "kuan": {
     "sound": "kwahn",
-    "description": "starts with k then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'koo-ahn'"
   },
   "kuang": {
     "sound": "kwahng",
-    "description": "starts with k then w sound, and then rhymes with 'song'"
+    "description": "sounds like 'koo-ahng, rhymes with 'song'"
   },
   "kui": {
     "sound": "kway",
-    "description": "starts with k and then says 'way'"
+    "description": "starts with 'koo' and then says 'way'"
   },
   "kun": {
     "sound": "kwun",
-    "description": "starts with k then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'koo-wun, rhymes with 'moon'"
   },
-  "kuo": {
+  "kuo": {  
     "sound": "kwoh",
-    "description": "starts with k then w sound, and then says 'oh'"
+    "description": "sounds like 'koo-oh', like the start of the word 'quota'"
   },
   "la": {
     "sound": "lah",
@@ -636,7 +636,7 @@ export const phonemeMap = {
   },
   "lan": {
     "sound": "lahn",
-    "description": "similar to 'lawn' but not quite such a long sound"
+    "description": "sounds like 'lawn' but not quite such a long sound"
   },
   "lang": {
     "sound": "lahng",
@@ -664,15 +664,15 @@ export const phonemeMap = {
   },
   "lia": {
     "sound": "lee-ah",
-    "description": "starts with 'lee' and then says 'ah'"
+    "description": "sounds like 'lee-ah'"
   },
   "lian": {
     "sound": "lee-yen",
-    "description": "starts with 'lee' and then says the letter N"
+    "description": "sounds like 'lee-yen'"
   },
   "liang": {
     "sound": "lee-ahng",
-    "description": "starts with 'lee' and then rhymes with 'song'"
+    "description": "sounds like 'lee-ahng, rhymes with 'song'"
   },
   "liao": {
     "sound": "lee-ow",
@@ -680,7 +680,7 @@ export const phonemeMap = {
   },
   "lie": {
     "sound": "lee-eh",
-    "description": "starts with 'lee' and then says 'eh'"
+    "description": "sounds like 'lee-eh'"
   },
   "lin": {
     "sound": "lean",
@@ -693,10 +693,6 @@ export const phonemeMap = {
   "liu": {
     "sound": "lee-oh",
     "description": "like the start of the word 'lieutenant'"
-  },
-  "lo": {
-    "sound": "lwoh",
-    "description": "starts with l then w sound, and then says 'oh'"
   },
   "long": {
     "sound": "long",
@@ -712,11 +708,11 @@ export const phonemeMap = {
   },
   "luan": {
     "sound": "loo-ahn",
-    "description": "starts with 'loo' and then rhymes with 'dawn'"
+    "description": "sounds like 'loo-ahn'"
   },
   "lue": {
     "sound": "loo-eh",
-    "description": "starts with 'loo' and then says 'eh'"
+    "description": "sounds like 'loo-eh'"
   },
   "lun": {
     "sound": "loon",
@@ -724,7 +720,7 @@ export const phonemeMap = {
   },
   "luo": {
     "sound": "lwoh",
-    "description": "starts with l then w sound, and then says 'oh'"
+    "description": "sounds like 'l-woh'"
   },
   "lv": {
     "sound": "lyoo",
@@ -796,7 +792,7 @@ export const phonemeMap = {
   },
   "mo": {
     "sound": "mwoh",
-    "description": "starts with m then w sound, and then says 'oh'"
+    "description": "sounds like 'm-woh'"
   },
   "mou": {
     "sound": "moh",
@@ -808,7 +804,7 @@ export const phonemeMap = {
   },
   "na": {
     "sound": "nah",
-    "description": "like saying 'nah' as in 'no way'"
+    "description": "sounds like 'nah' as in 'no way'"
   },
   "nai": {
     "sound": "nigh",
@@ -816,7 +812,7 @@ export const phonemeMap = {
   },
   "nan": {
     "sound": "nahn",
-    "description": "like saying 'nah' but add a soft n at the end"
+    "description": "sounds like 'nah' but add a soft n at the end"
   },
   "nang": {
     "sound": "nahng",
@@ -848,11 +844,11 @@ export const phonemeMap = {
   },
   "nian": {
     "sound": "nee-yen",
-    "description": "starts with 'nee' and then says the letter N"
+    "description": "sounds like 'nee-yen'"
   },
   "niang": {
     "sound": "nee-ahng",
-    "description": "starts with 'nee' and then rhymes with 'song'"
+    "description": "sounds like 'nee-ahng, rhymes with 'song'"
   },
   "niao": {
     "sound": "nee-ow",
@@ -860,7 +856,7 @@ export const phonemeMap = {
   },
   "nie": {
     "sound": "nee-eh",
-    "description": "starts with 'nee' and then says 'eh'"
+    "description": "sounds like 'nee-eh'"
   },
   "nin": {
     "sound": "nean",
@@ -872,7 +868,7 @@ export const phonemeMap = {
   },
   "niu": {
     "sound": "nee-oh",
-    "description": "like the sound 'nee' and then the letter O"
+    "description": "sounds like 'nee-oh'"
   },
   "nong": {
     "sound": "nong",
@@ -888,19 +884,19 @@ export const phonemeMap = {
   },
   "nuan": {
     "sound": "noo-ahn",
-    "description": "starts with 'noo' and then rhymes with 'dawn'"
+    "description": "sounds like 'noo-ahn'"
   },
   "nue": {
     "sound": "noo-eh",
-    "description": "starts with the sound 'noo', and then the sound 'eh'"
+    "description": "sounds like 'noo-eh'"
   },
   "nun": {
     "sound": "nwun",
-    "description": "starts with n then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'n-wun, rhymes with 'moon'"
   },
   "nuo": {
     "sound": "nwoh",
-    "description": "starts with n then w sound, and then says 'oh'"
+    "description": "sounds like 'n-woh'"
   },
   "nv": {
     "sound": "nuu",
@@ -968,7 +964,7 @@ export const phonemeMap = {
   },
   "po": {
     "sound": "pwoh",
-    "description": "starts with p then w sound, and then says 'oh'"
+    "description": "sounds like 'p-woh'"
   },
   "pou": {
     "sound": "poh",
@@ -984,15 +980,15 @@ export const phonemeMap = {
   },
   "qia": {
     "sound": "chee-ah",
-    "description": "starts with 'chee' and then says 'ah'"
+    "description": "sounds like 'chee-ah'"
   },
   "qian": {
     "sound": "chee-yen",
-    "description": "starts with 'chee' and then says the letter N"
+    "description": "sounds like 'chee-yen'"
   },
   "qiang": {
     "sound": "chee-ahng",
-    "description": "starts with 'chee' and then rhymes with 'song'"
+    "description": "sounds like 'chee-ahng, rhymes with 'song'"
   },
   "qiao": {
     "sound": "chee-ow",
@@ -1000,7 +996,7 @@ export const phonemeMap = {
   },
   "qie": {
     "sound": "chee-eh",
-    "description": "starts with 'chee' and then says 'eh'"
+    "description": "sounds like 'chee-eh'"
   },
   "qin": {
     "sound": "cheen",
@@ -1012,7 +1008,7 @@ export const phonemeMap = {
   },
   "qiu": {
     "sound": "chee-oh",
-    "description": "starts with 'chee' and then says 'oh'"
+    "description": "sounds like 'chee-oh'"
   },
   "qu": {
     "sound": "choo",
@@ -1020,11 +1016,11 @@ export const phonemeMap = {
   },
   "quan": {
     "sound": "choo-ahn",
-    "description": "starts with the ch sound, then the word 'when'"
+    "description": "sounds like 'chew-ahn'"
   },
   "que": {
     "sound": "choo-eh",
-    "description": "starts with 'chew' and then says 'eh'"
+    "description": "sounds like 'chew-eh'"
   },
   "qun": {
     "sound": "choon",
@@ -1072,19 +1068,19 @@ export const phonemeMap = {
   },
   "ruan": {
     "sound": "rwahn",
-    "description": "starts with r then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'roo-ahn'"
   },
   "rui": {
     "sound": "rway",
-    "description": "starts with r and then says 'way'"
+    "description": "sounds like 'roo-way'"
   },
   "run": {
     "sound": "rwun",
-    "description": "starts with r then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'roo-wun, rhymes with 'moon'"
   },
   "ruo": {
     "sound": "rwoh",
-    "description": "starts with r then w sound, and then says 'oh'"
+    "description": "sounds like 'roo-oh'"
   },
   "sa": {
     "sound": "sah",
@@ -1168,31 +1164,31 @@ export const phonemeMap = {
   },
   "shua": {
     "sound": "shwah",
-    "description": "starts with sh then w sound, and then says 'ah'"
+    "description": "sounds like 'shoo-ah'"
   },
   "shuai": {
     "sound": "shwigh",
-    "description": "starts with sh and then the word 'why'"
+    "description": "starts with 'shoo' and then the word 'why'"
   },
   "shuan": {
     "sound": "shwahn",
-    "description": "starts with sh then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'shoo-ahn'"
   },
   "shuang": {
     "sound": "shwahng",
-    "description": "starts with sh then w sound, and then rhymes with 'song'"
+    "description": "sounds like 'shoo-ahng, rhymes with 'song'"
   },
   "shui": {
     "sound": "shway",
-    "description": "starts with sh and then says 'way'"
+    "description": "sounds like 'shoo-way'"
   },
   "shun": {
     "sound": "shwun",
-    "description": "starts with sh then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'shoo-wun, rhymes with 'moon'"
   },
   "shuo": {
     "sound": "shwoh",
-    "description": "starts with sh then w sound, and then says 'oh'"
+    "description": "sounds like 'shoo-oh'"
   },
   "si": {
     "sound": "suh",
@@ -1212,19 +1208,19 @@ export const phonemeMap = {
   },
   "suan": {
     "sound": "swahn",
-    "description": "starts with s then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'soo-ahn'"
   },
   "sui": {
     "sound": "sway",
-    "description": "starts with s and then says 'way'"
+    "description": "like 'to sway' back and forth"
   },
   "sun": {
     "sound": "swun",
-    "description": "starts with s then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'soo-wun, rhymes with 'moon'"
   },
   "suo": {
     "sound": "swoh",
-    "description": "starts with s then w sound, and then says 'oh'"
+    "description": "sounds like 'soo-oh'"
   },
   "ta": {
     "sound": "tah",
@@ -1252,7 +1248,7 @@ export const phonemeMap = {
   },
   "tei": {
     "sound": "tay",
-    "description": "starts with t and then says 'ay'"
+    "description": "sounds like 'tee-ay'"
   },
   "teng": {
     "sound": "tung",
@@ -1264,7 +1260,7 @@ export const phonemeMap = {
   },
   "tian": {
     "sound": "tee-yen",
-    "description": "like the letters T and N said quickly"
+    "description": "sounds like 'tee-yen'"
   },
   "tiao": {
     "sound": "tee-ow",
@@ -1272,7 +1268,7 @@ export const phonemeMap = {
   },
   "tie": {
     "sound": "tee-eh",
-    "description": "starts with the letter T and then says 'eh'"
+    "description": "sounds like 'tee-eh'"
   },
   "ting": {
     "sound": "ting",
@@ -1292,15 +1288,15 @@ export const phonemeMap = {
   },
   "tuan": {
     "sound": "twahn",
-    "description": "starts with t then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'too-ahn'"
   },
   "tui": {
     "sound": "tway",
-    "description": "starts with t and then says 'way'"
+    "description": "sounds like 'too-way' said quickly"
   },
   "tun": {
     "sound": "twun",
-    "description": "starts with t then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'too-wun, rhymes with 'moon'"
   },
   "tuo": {
     "sound": "twoh",
@@ -1348,15 +1344,15 @@ export const phonemeMap = {
   },
   "xia": {
     "sound": "shee-ah",
-    "description": "starts with 'shee' and then says 'ah'"
+    "description": "sounds like 'shee-ah'"
   },
   "xian": {
     "sound": "shee-yen",
-    "description": "like the sound 'she' and the letter N"
+    "description": "sounds like 'shee-yen'"
   },
   "xiang": {
     "sound": "shee-ahng",
-    "description": "starts with 'shee' and then rhymes with 'song'"
+    "description": "sounds like 'shee-ahng, rhymes with 'song'"
   },
   "xiao": {
     "sound": "shee-ow",
@@ -1364,7 +1360,7 @@ export const phonemeMap = {
   },
   "xie": {
     "sound": "shee-eh",
-    "description": "starts with 'shee' and then says 'eh'"
+    "description": "sounds like 'shee-eh'"
   },
   "xin": {
     "sound": "sheen",
@@ -1376,11 +1372,11 @@ export const phonemeMap = {
   },
   "xiong": {
     "sound": "shee-ong",
-    "description": "starts with 'shee' and then rhymes with 'song'"
+    "description": "sounds like 'shee-ong, rhymes with 'song'"
   },
   "xiu": {
     "sound": "shee-oh",
-    "description": "is similar to the word 'show'"
+    "description": "sounds like 'shee-oh'"
   },
   "xu": {
     "sound": "shoo",
@@ -1388,11 +1384,11 @@ export const phonemeMap = {
   },
   "xuan": {
     "sound": "shoo-ahn",
-    "description": "starts with the word 'shoe' and then the word 'when'"
+    "description": "sounds like 'shoo-ahn'"
   },
   "xue": {
     "sound": "shoo-eh",
-    "description": "starts with 'shoe' and then says 'eh'"
+    "description": "sounds like 'shoo-eh'"
   },
   "xun": {
     "sound": "shoon",
@@ -1444,7 +1440,7 @@ export const phonemeMap = {
   },
   "you": {
     "sound": "yoh",
-    "description": "just like the word 'yo'"
+    "description": "like in 'yo-yo'"
   },
   "yu": {
     "sound": "yoo",
@@ -1452,11 +1448,11 @@ export const phonemeMap = {
   },
   "yuan": {
     "sound": "yoo-ahn",
-    "description": "like the letters U and N said quickly"
+    "description": "sounds like 'yoo-ahn'"
   },
   "yue": {
     "sound": "yoo-eh",
-    "description": "starts with the word 'yoo' and then says 'eh'"
+    "description": "sounds like 'yoo-eh'"
   },
   "yun": {
     "sound": "yoon",
@@ -1468,19 +1464,19 @@ export const phonemeMap = {
   },
   "zai": {
     "sound": "zigh",
-    "description": "starts with z sound and then rhymes with 'sigh'"
+    "description": "rhymes with 'sigh'"
   },
   "zan": {
     "sound": "zahn",
-    "description": "starts with z sound and then rhymes with 'dawn'"
+    "description": "rhymes with 'dawn'"
   },
   "zang": {
     "sound": "zahng",
-    "description": "starts with z sound and then rhymes with 'song'"
+    "description": "rhymes with 'song'"
   },
   "zao": {
     "sound": "zow",
-    "description": "starts with z sound and then rhymes with 'how'"
+    "description": "rhymes with 'how'"
   },
   "ze": {
     "sound": "zuh",
@@ -1492,11 +1488,11 @@ export const phonemeMap = {
   },
   "zen": {
     "sound": "zun",
-    "description": "starts with z sound and then rhymes with 'done'"
+    "description": "rhymes with 'done'"
   },
   "zeng": {
     "sound": "zung",
-    "description": "starts with z sound and then rhymes with 'sung'"
+    "description": "rhymes with 'sung'"
   },
   "zha": {
     "sound": "jah",
@@ -1504,27 +1500,27 @@ export const phonemeMap = {
   },
   "zhai": {
     "sound": "jigh",
-    "description": "starts with j sound and then rhymes with 'sigh'"
+    "description": "starts with a j sound and then rhymes with 'sigh'"
   },
   "zhan": {
     "sound": "jahn",
-    "description": "starts with j sound and then rhymes with 'dawn'"
+    "description": "starts with a j sound and then rhymes with 'dawn'"
   },
   "zhang": {
     "sound": "jong",
-    "description": "starts with j sound and rhymes with 'song'"
+    "description": "starts with a j sound and rhymes with 'song'"
   },
   "zhao": {
     "sound": "jow",
-    "description": "starts with j sound and then rhymes with 'how'"
+    "description": "starts with a j sound and then rhymes with 'how'"
   },
   "zhe": {
     "sound": "juh",
-    "description": "starts with j sound and then says 'uh'"
+    "description": "sounds like j-uh"
   },
   "zhei": {
     "sound": "jay",
-    "description": "just like the name 'Jay'"
+    "description": "sounds like the letter J'"
   },
   "zhen": {
     "sound": "jun",
@@ -1552,31 +1548,31 @@ export const phonemeMap = {
   },
   "zhua": {
     "sound": "jwah",
-    "description": "starts with j then w sound, and then says 'ah'"
+    "description": "sounds like 'joo-wah'"
   },
   "zhuai": {
     "sound": "jwigh",
-    "description": "starts with j and then the word 'why'"
+    "description": "sounds like 'joo-why'"
   },
   "zhuan": {
     "sound": "jwahn",
-    "description": "starts with j then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'joo-ahn'"
   },
   "zhuang": {
     "sound": "jwahng",
-    "description": "starts with j then w sound, and then rhymes with 'song'"
+    "description": "sounds like 'joo-ahng, rhymes with 'song'"
   },
   "zhui": {
     "sound": "jway",
-    "description": "starts with j and then says 'way'"
+    "description": "sounds like 'joo-way'"
   },
   "zhun": {
     "sound": "jwun",
-    "description": "starts with j then w sound, and then rhymes with 'moon'"
+    "description": "sounds like 'joo-wun, rhymes with 'moon'"
   },
   "zhuo": {
     "sound": "jwoh",
-    "description": "starts with j then w sound, and then says 'oh'"
+    "description": "sounds like 'joo-oh'"
   },
   "zi": {
     "sound": "zuh",
@@ -1584,11 +1580,11 @@ export const phonemeMap = {
   },
   "zong": {
     "sound": "tsong",
-    "description": "starts with ts sound and rhymes with 'song'"
+    "description": "rhymes with 'song'"
   },
   "zou": {
     "sound": "zoh",
-    "description": "starts with z sound and then rhymes with 'show'"
+    "description": "rhymes with 'show'"
   },
   "zu": {
     "sound": "zoo",
@@ -1596,18 +1592,18 @@ export const phonemeMap = {
   },
   "zuan": {
     "sound": "zwahn",
-    "description": "starts with z then w sound, and then rhymes with 'dawn'"
+    "description": "sounds like 'zoo-ahn'"
   },
   "zui": {
     "sound": "zway",
-    "description": "starts with z and then says 'way'"
+    "description": "sounds like 'zoo-way'"
   },
   "zun": {
     "sound": "zwun",
-    "description": "starts with the 'z' sound, then rhymes with the word 'moon'"
+    "description": "sounds like 'zoo-wun, rhymes with 'moon'"
   },
   "zuo": {
     "sound": "zwoh",
-    "description": "starts with the z sound, then the word woah'"
+    "description": "sounds like 'zoo-oh'"
   }
 }
