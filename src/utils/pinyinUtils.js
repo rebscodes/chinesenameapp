@@ -8,6 +8,7 @@ export const EXAMPLE_NAMES = {
 };
 
 export const EXAMPLE_NAMES_STRING = `${EXAMPLE_NAMES.ZHENGXUN}, ${EXAMPLE_NAMES.TIANYUAN}, ${EXAMPLE_NAMES.WENQING}, ${EXAMPLE_NAMES.ZHIHUA}`;
+export const EXAMPLE_NAMES_LIST = [EXAMPLE_NAMES.ZHENGXUN, EXAMPLE_NAMES.TIANYUAN, EXAMPLE_NAMES.WENQING, EXAMPLE_NAMES.ZHIHUA];
 
 export const PINYIN_INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
 export const PINYIN_FINALS = ['iang', 'iong', 'uang', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ang', 'eng', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ai', 'an', 'ao', 'ei', 'en', 'er', 'ie', 'in', 'iu', 'ou', 'ui', 'un', 'uo', 'a', 'e', 'i', 'o', 'u', 'v', 'ü'];
