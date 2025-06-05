@@ -8,7 +8,7 @@ const InputSection = ({ inputName, setInputName, handlePronounce, isLoading, cle
       <BookOpen className="w-5 h-5" />
       <span className="font-medium">Enter Chinese Name</span>
     </div>
-    
+
     <div className="relative">
       <input
         type="text"
@@ -45,4 +45,4 @@ const InputSection = ({ inputName, setInputName, handlePronounce, isLoading, cle
   </div>
 );
 
-export default InputSection; 
+export default InputSection;

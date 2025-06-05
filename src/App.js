@@ -13,7 +13,7 @@ const App = () => {
 
   const handlePronounce = useCallback(() => {
     if (!inputName.trim()) return;
-    
+
     setIsLoading(true);
     setErrors([]);
     setPronunciation('');
@@ -67,7 +67,7 @@ const App = () => {
         )}
 
         {errors.length === 0 && (
-          <ResultsSection 
+          <ResultsSection
             pronunciation={pronunciation}
           />
         )}

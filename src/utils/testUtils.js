@@ -18,4 +18,4 @@ export const createPronunciationString = (syllables, phonemeMap) => {
   return syllables
     .map(syllable => `"${syllable}" ${phonemeMap[syllable].description}`)
     .join('\n');
-}; 
+};
