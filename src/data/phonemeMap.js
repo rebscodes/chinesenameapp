@@ -1,7 +1,7 @@
 export const phonemeMap = {
   "ai": {
     "sound": "eye",
-    "description": "like seeing 'eye to eye"
+    "description": "like seeing 'eye to eye'"
   },
   "an": {
     "sound": "ahn", 
@@ -13,7 +13,7 @@ export const phonemeMap = {
   },
   "ao": {
     "sound": "ow",
-    "description": "like 'cow' or 'how'"
+    "description": "rhymes with 'how'"
   },
   "ba": {
     "sound": "bah",
@@ -56,7 +56,7 @@ export const phonemeMap = {
     "description": "like 'bean' the vegetable"
   },
   "bing": {
-    "sound": "bing",
+    "sound": "like 'bing' as in 'bingo'",
   },
   "bo": {
     "sound": "bwoh",
