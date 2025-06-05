@@ -1,10 +1,11 @@
 import React from 'react';
+import { EXAMPLE_NAMES_LIST } from '../utils/pinyinUtils';
 
 const ExamplesSection = ({ setInputName }) => (
   <div className="bg-white rounded-2xl shadow-lg p-6">
     <h3 className="font-semibold text-gray-800 mb-3">Try these examples:</h3>
     <div className="flex flex-wrap gap-2">
-      {['zhengxun', 'tianyuan', 'wenqing', 'zhihua'].map((example) => (
+      {EXAMPLE_NAMES_LIST.map((example) => (
         <button
           key={example}
           onClick={() => setInputName(example)}
