@@ -9,8 +9,8 @@ const Header = () => (
           <Sparkles className="w-5 h-5 text-white" />
         </div>
         <div>
-          <h1 className="text-xl font-bold text-gray-900">Name Pronunciation</h1>
-          <p className="text-sm text-gray-600">Chinese to English phonetics</p>
+          <h1 className="text-xl font-bold text-gray-900">Pinyin Helper</h1>
+          <p className="text-sm text-gray-600">Helping English speakers pronounce Chinese</p>
         </div>
       </div>
     </div>

@@ -12,8 +12,8 @@ import { EXAMPLE_NAMES_STRING } from '../utils/pinyinUtils';
 describe('Header Component', () => {
   test('renders header with correct text and styling', () => {
     render(<Header />);
-    expect(screen.getByText('Name Pronunciation')).toBeInTheDocument();
-    expect(screen.getByText('Chinese to English phonetics')).toBeInTheDocument();
+    expect(screen.getByText('Pinyin Helper')).toBeInTheDocument();
+    expect(screen.getByText('Helping English speakers pronounce Chinese')).toBeInTheDocument();
     
     // Check for icon presence
     const icon = document.querySelector('.lucide-sparkles');
@@ -43,7 +43,7 @@ describe('InputSection Component', () => {
 
     expect(screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'))).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /get pronunciation/i })).toBeInTheDocument();
-    expect(screen.getByText('Enter Chinese Name')).toBeInTheDocument();
+    expect(screen.getByText('Enter Chinese Word or Name')).toBeInTheDocument();
     
     const icon = document.querySelector('.lucide-book-open');
     expect(icon).toBeInTheDocument();

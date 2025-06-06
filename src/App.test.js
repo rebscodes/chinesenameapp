@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders app header', () => {
   render(<App />);
-  const headerElement = screen.getByText(/Name Pronunciation/i);
+  const headerElement = screen.getByText(/Pinyin Helper/i);
   expect(headerElement).toBeInTheDocument();
 });
