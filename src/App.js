@@ -75,8 +75,7 @@ const App = () => {
         <ExamplesSection setInputName={setInputName} />
 
         <div className="text-center text-sm text-gray-500 space-y-2">
-          <p>Phonetic mappings help English speakers</p>
-          <p>get ~close enough~</p>
+          <p>that's just like, your 'pinyin man!</p>
         </div>
       </div>
     </div>
