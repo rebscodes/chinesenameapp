@@ -58,9 +58,9 @@ const App = () => {
 
         {errors.length > 0 && (
           <div className="bg-white rounded-2xl shadow-lg p-6">
-            <div className="bg-red-50 rounded-xl p-4 border border-red-200">
+              <div className="bg-orange-50/80 rounded-xl p-4">
               {errors.map((error, index) => (
-                <p key={index} className="text-red-700">
+                <p key={index} className="text-orange-500">
                   {error}
                 </p>
               ))}
