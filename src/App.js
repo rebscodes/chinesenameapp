@@ -57,12 +57,14 @@ const App = () => {
         />
 
         {errors.length > 0 && (
-          <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-            {errors.map((error, index) => (
-              <p key={index} className="text-red-700">
-                {error}
-              </p>
-            ))}
+          <div className="bg-white rounded-2xl shadow-lg p-6">
+            <div className="bg-red-50 rounded-xl p-4 border border-red-200">
+              {errors.map((error, index) => (
+                <p key={index} className="text-red-700">
+                  {error}
+                </p>
+              ))}
+            </div>
           </div>
         )}
 
