@@ -45,7 +45,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen">
       <Header />
       <div className="max-w-md mx-auto px-4 py-6 space-y-6">
         <InputSection

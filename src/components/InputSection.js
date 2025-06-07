@@ -31,7 +31,7 @@ const InputSection = ({ inputName, setInputName, handlePronounce, isLoading, cle
     <button
       onClick={handlePronounce}
       disabled={!inputName.trim() || isLoading}
-      className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 px-6 rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all hover:shadow-lg"
+      className="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white py-4 px-6 rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all hover:shadow-lg"
     >
       {isLoading ? (
         <div className="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full"></div>
