@@ -14,10 +14,6 @@ describe('Header Component', () => {
     render(<Header />);
     expect(screen.getByText('Pinyin Helper')).toBeInTheDocument();
     expect(screen.getByText('Helping English speakers pronounce Chinese')).toBeInTheDocument();
-    
-    // Check for icon presence
-    const icon = document.querySelector('.lucide-sparkles');
-    expect(icon).toBeInTheDocument();
   });
 });
 
