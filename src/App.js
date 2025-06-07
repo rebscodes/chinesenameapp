@@ -76,6 +76,10 @@ const App = () => {
 
         <div className="text-center text-sm text-gray-500 space-y-2">
           <p>that's just like, your 'pinyin man!</p>
+          <p>made with 💖 by
+            <a href="http://instagram.com/rebswushu">@rebswushu</a>.&nbsp;
+            <a href="https://coff.ee/rebscodes">buy me a coffee</a>!
+          </p>
         </div>
       </div>
     </div>
