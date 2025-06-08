@@ -63,13 +63,6 @@ export const separatePinyinSyllables = (input) => {
 
 // Add this new function to convert Chinese characters to pinyin
 export const convertToPinyin = (input) => {
-  // Check if input contains Chinese characters
-  const containsChinese = /[\u4e00-\u9fa5]/.test(input);
-  
-  if (!containsChinese) {
-    return input; // Return as is if no Chinese characters
-  }
-  
   // Convert Chinese to pinyin without tones
   return pinyin(input, {
     style: pinyin.STYLE_NORMAL,
@@ -77,13 +70,20 @@ export const convertToPinyin = (input) => {
   }).flat().join(' ');
 };
 
+export const checkIfChineseCharacters = (input) => {
+  return /[\u4e00-\u9fa5]/.test(input);
+};
+
 export const getPronunciation = (name) => {
   if (!name) return { syllables: [], notFoundSyllables: [] };
   
   // First convert any Chinese characters to pinyin
-  const pinyinText = convertToPinyin(name);
-  
-  // Then process the pinyin as before
+  let pinyinText = name;
+  if (checkIfChineseCharacters(name)) {
+    pinyinText = convertToPinyin(name);
+  }
+
+  // Process the pinyin
   const syllables = separatePinyinSyllables(pinyinText);
   const notFoundSyllables = syllables.filter(syllable => !phonemeMap[syllable]);
   return { syllables, notFoundSyllables };

@@ -248,7 +248,7 @@ export const phonemeMap = {
   },
   "diao": {
     "sound": "dee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'dee-ow'"
   },
   "die": {
     "sound": "dee-eh",
@@ -516,7 +516,7 @@ export const phonemeMap = {
   },
   "jiao": {
     "sound": "jee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'jee-ow'"
   },
   "jie": {
     "sound": "jee-eh",
@@ -676,7 +676,7 @@ export const phonemeMap = {
   },
   "liao": {
     "sound": "lee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'lee-ow'"
   },
   "lie": {
     "sound": "lee-eh",
@@ -772,7 +772,7 @@ export const phonemeMap = {
   },
   "miao": {
     "sound": "mee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'mee-ow'"
   },
   "mie": {
     "sound": "mee-eh",
@@ -852,7 +852,7 @@ export const phonemeMap = {
   },
   "niao": {
     "sound": "nee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'nee-ow'"
   },
   "nie": {
     "sound": "nee-eh",
@@ -948,7 +948,7 @@ export const phonemeMap = {
   },
   "piao": {
     "sound": "pee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'pee-ow'"
   },
   "pie": {
     "sound": "pee-eh",
@@ -992,7 +992,7 @@ export const phonemeMap = {
   },
   "qiao": {
     "sound": "chee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'chee-ow'" 
   },
   "qie": {
     "sound": "chee-eh",
@@ -1264,7 +1264,7 @@ export const phonemeMap = {
   },
   "tiao": {
     "sound": "tee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'tee-ow'"
   },
   "tie": {
     "sound": "tee-eh",
@@ -1356,7 +1356,7 @@ export const phonemeMap = {
   },
   "xiao": {
     "sound": "shee-ow",
-    "description": "rhymes with 'meow'"
+    "description": "sounds like 'shee-ow'"
   },
   "xie": {
     "sound": "shee-eh",
@@ -1368,7 +1368,7 @@ export const phonemeMap = {
   },
   "xing": {
     "sound": "shing",
-    "description": "rhymes with 'sing'"
+    "description": "sounds like 'sh-ing'"
   },
   "xiong": {
     "sound": "shee-ong",
@@ -1447,7 +1447,7 @@ export const phonemeMap = {
     "description": "just like the word 'you'"
   },
   "yuan": {
-    "sound": "yoo-ahn",
+    "sound": "yu-ahn",
     "description": "sounds like 'yoo-ahn'"
   },
   "yue": {
