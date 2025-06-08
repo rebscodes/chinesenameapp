@@ -472,7 +472,7 @@ export const phonemeMap = {
   },
   "hua": {
     "sound": "hwah",
-    "description": "sounds like 'hoo-ah' said quickly"
+    "description": "sounds like 'hw-ah'"
   },
   "huai": {
     "sound": "hwigh",
@@ -480,11 +480,11 @@ export const phonemeMap = {
   },
   "huan": {
     "sound": "hwahn",
-    "description": "sounds like 'hoo-ahn' said quickly"
+    "description": "sounds like 'hw-ahn'"
   },
   "huang": {
     "sound": "hwahng",
-    "description": "sounds like 'hoo-ahng, rhymes with 'song'"
+    "description": "sounds like 'hw-ahng, rhymes with 'song'"
   },
   "hui": {
     "sound": "hway",
@@ -492,11 +492,11 @@ export const phonemeMap = {
   },
   "hun": {
     "sound": "hwun",
-    "description": "sounds like 'hoo-wun, rhymes with 'moon'"
+    "description": "sounds like 'hw-un, rhymes with 'moon'"
   },
   "huo": {
     "sound": "hwoh",
-    "description": "sounds like 'hoo-oh'"
+    "description": "sounds like 'hw-oh'"
   },
   "ji": {
     "sound": "jee",
@@ -944,7 +944,7 @@ export const phonemeMap = {
   },
   "pian": {
     "sound": "pee-yen",
-    "description": "like the letters P and N said quickly"
+    "description": "sounds like 'pee-yen'"
   },
   "piao": {
     "sound": "pee-ow",
@@ -1288,15 +1288,15 @@ export const phonemeMap = {
   },
   "tuan": {
     "sound": "twahn",
-    "description": "sounds like 'too-ahn'"
+    "description": "sounds like 'tw-ahn'"
   },
   "tui": {
     "sound": "tway",
-    "description": "sounds like 'too-way' said quickly"
+    "description": "sounds like 'tw-ay'"
   },
   "tun": {
     "sound": "twun",
-    "description": "sounds like 'too-wun, rhymes with 'moon'"
+    "description": "sounds like 'tw-un, rhymes with 'moon'"
   },
   "tuo": {
     "sound": "twoh",
