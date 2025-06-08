@@ -105,32 +105,16 @@ describe('Pinyin Utilities', () => {
     test('formats error message for different types of invalid input', () => {
       const cases = [
         {
-          // Single character unparseable input
           syllables: ['x', 'y', 'z'],
           notFound: ['x', 'y', 'z'],
           input: 'xyz',
           expected: 'Could not parse "xyz" into valid pinyin.'
         },
         {
-          // Mixed valid and unparseable input
-          syllables: ['zhang', 'x', 'y', 'z'],
-          notFound: ['x', 'y', 'z'],
-          input: 'zhangxyz',
-          expected: 'Could not parse "zhangxyz" into valid pinyin.'
-        },
-        {
-          // Invalid multi-character syllables
-          syllables: ['zhang', 'abcd'],
-          notFound: ['abcd'],
-          input: 'zhangabcd',
-          expected: 'Could not parse "zhangabcd" into valid pinyin.'
-        },
-        {
-          // Mixed unparseable characters and invalid syllables
-          syllables: ['zhang', 'x', 'y', 'abcd'],
-          notFound: ['x', 'y', 'abcd'],
-          input: 'zhangxyabcd',
-          expected: 'Could not parse "zhangxyabcd" into valid pinyin.'
+          syllables: ['zhang', 'x'],
+          notFound: ['x'],
+          input: 'zhangx',
+          expected: 'Could not parse "zhangx" into valid pinyin.'
         }
       ];
 

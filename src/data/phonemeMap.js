@@ -1320,7 +1320,7 @@ export const phonemeMap = {
   },
   "wei": {
     "sound": "way",
-    "description": "like 'I know the way!'"
+    "description": "like 'way to go!'"
   },
   "wen": {
     "sound": "wun",

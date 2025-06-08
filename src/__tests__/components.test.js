@@ -166,6 +166,57 @@ describe('App Integration', () => {
     expect(screen.getByText(new RegExp(phonemeMap[TEST_SYLLABLES.SINGLE].description, 'i'))).toBeInTheDocument();
   });
 
+  test('handles Chinese character input', async () => {
+    render(<App />);
+
+    const input = screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'));
+    await act(async () => {
+      fireEvent.change(input, { target: { value: '张伟' } });
+    });
+
+    const button = screen.getByRole('button', { name: /get pronunciation/i });
+    await act(async () => {
+      fireEvent.click(button);
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(800);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText(/Pronunciation Guide/i)).toBeInTheDocument();
+    });
+
+    // Check for both syllables' descriptions
+    expect(screen.getByText(new RegExp(phonemeMap['zhang'].description, 'i'))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(phonemeMap['wei'].description, 'i'))).toBeInTheDocument();
+  });
+
+  test('handles mixed Chinese and pinyin input', async () => {
+    render(<App />);
+
+    const input = screen.getByPlaceholderText(new RegExp(EXAMPLE_NAMES_STRING, 'i'));
+    await act(async () => {
+      fireEvent.change(input, { target: { value: '张wei' } });
+    });
+
+    const button = screen.getByRole('button', { name: /get pronunciation/i });
+    await act(async () => {
+      fireEvent.click(button);
+    });
+
+    await act(async () => {
+      jest.advanceTimersByTime(800);
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText(/Pronunciation Guide/i)).toBeInTheDocument();
+    });
+
+    expect(screen.getByText(new RegExp(phonemeMap['zhang'].description, 'i'))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(phonemeMap['wei'].description, 'i'))).toBeInTheDocument();
+  });
+
   test('handles invalid input with error message', async () => {
     render(<App />);
 
