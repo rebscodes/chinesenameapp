@@ -10,25 +10,8 @@ export const EXAMPLE_NAMES = {
 
 export const EXAMPLE_NAMES_STRING = `${EXAMPLE_NAMES.TIANYUAN}, ${EXAMPLE_NAMES.WENQING}, ${EXAMPLE_NAMES.ZHIHUA}, ${EXAMPLE_NAMES.ZHANGWEILI}`;
 
-export const PINYIN_INITIALS = ['zh', 'ch', 'sh', 'b', 'p', 'm', 'f', 'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x', 'r', 'z', 'c', 's', 'y', 'w'];
-export const PINYIN_FINALS = ['iang', 'iong', 'uang', 'ang', 'eng', 'ian', 'iao', 'ing', 'ong', 'uai', 'uan', 'ai', 'an', 'ao', 'ei', 'en', 'er', 'ie', 'in', 'iu', 'ou','ua', 'ui', 'un', 'uo', 'a', 'e', 'i', 'o', 'u', 'v', 'ü'];
-
-// Helper function to get all possible syllables
-const getAllPossibleSyllables = () => {
-  const syllables = [];
-  // Add all initial + final combinations
-  for (const initial of PINYIN_INITIALS) {
-    for (const final of PINYIN_FINALS) {
-      syllables.push(initial + final);
-    }
-  }
-  // Add all finals as standalone syllables
-  syllables.push(...PINYIN_FINALS);
-  // Sort by length (longest first) to ensure we match longest valid syllables first
-  return syllables.sort((a, b) => b.length - a.length);
-};
-
-const POSSIBLE_SYLLABLES = getAllPossibleSyllables();
+// Get all possible syllables from phonemeMap, sorted by length (longest first)
+const POSSIBLE_SYLLABLES = Object.keys(phonemeMap).sort((a, b) => b.length - a.length);
 
 export const separatePinyinSyllables = (input) => {
   const words = input.toLowerCase().trim().split(/\s+/);
@@ -42,7 +25,7 @@ export const separatePinyinSyllables = (input) => {
 
       // Try all possible syllables, starting with the longest ones
       for (const syllable of POSSIBLE_SYLLABLES) {
-        if (remaining.startsWith(syllable) && phonemeMap[syllable]) {
+        if (remaining.startsWith(syllable)) {
           result.push(syllable);
           remaining = remaining.slice(syllable.length);
           found = true;
@@ -61,7 +44,6 @@ export const separatePinyinSyllables = (input) => {
   return result;
 };
 
-// Add this new function to convert Chinese characters to pinyin
 export const convertToPinyin = (input) => {
   // Convert Chinese to pinyin without tones
   return pinyin(input, {
