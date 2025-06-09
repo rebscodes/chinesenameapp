@@ -1368,8 +1368,8 @@ export const phonemeMap = {
     "description": "like the second part of the word 'machine'"
   },
   "xing": {
-    "sound": "shing",
-    "description": "sounds like 'sh-ing', rhymes with 'sing'"
+    "sound": "shee-ing",
+    "description": "sounds like 'shee-ing', rhymes with 'sing'"
   },
   "xiong": {
     "sound": "shee-ong",
@@ -1404,8 +1404,8 @@ export const phonemeMap = {
     "description": "starts with y and then rhymes with 'sigh'"
   },
   "yan": {
-    "sound": "yahn",
-    "description": "like saying 'yah' but add a soft n at the end"
+    "sound": "yen",
+    "description": "sounds like 'yen'"
   },
   "yang": {
     "sound": "yahng",
@@ -1417,7 +1417,7 @@ export const phonemeMap = {
   },
   "ye": {
     "sound": "yeh",
-    "description": "just like the word 'yeah'"
+    "description": "sounds like 'yeh'"
   },
   "yi": {
     "sound": "yee",
@@ -1425,7 +1425,7 @@ export const phonemeMap = {
   },
   "yin": {
     "sound": "yeen",
-    "description": "like the 'yin' in yin and yang"
+    "description": "sounds like 'yeen'"
   },
   "ying": {
     "sound": "ying",
