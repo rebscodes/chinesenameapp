@@ -1193,7 +1193,7 @@ export const phonemeMap = {
   },
   "si": {
     "sound": "ss",
-    "description": "just the s sound"
+    "description": "just the s sound, 'ss'"
   },
   "song": {
     "sound": "song",
@@ -1573,7 +1573,7 @@ export const phonemeMap = {
   },
   "zi": {
     "sound": "zuh",
-    "description": "just the z sound"
+    "description": "just the z sound, 'zz'"
   },
   "zong": {
     "sound": "tsong",
