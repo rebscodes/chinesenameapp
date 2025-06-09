@@ -1004,8 +1004,8 @@ export const phonemeMap = {
     "description": "rhymes with 'seen'"
   },
   "qing": {
-    "sound": "ching",
-    "description": "starts with ch sound, then rhymes with 'sing'"
+    "sound": "chee-ing",
+    "description": "sounds like 'chee-ing'"
   },
   "qiu": {
     "sound": "chee-oh",
@@ -1053,7 +1053,7 @@ export const phonemeMap = {
   },
   "ri": {
     "sound": "rur",
-    "description": "like 'her' but starts with r sound"
+    "description": "just the r sound, rhymes with 'her'"
   },
   "rong": {
     "sound": "rong",
@@ -1153,7 +1153,7 @@ export const phonemeMap = {
   },
   "shi": {
     "sound": "shur",
-    "description": "like 'her' but starts with sh sound"
+    "description": "sounds like 'shur', rhymes with 'her'"
   },
   "shou": {
     "sound": "shoh",
@@ -1501,7 +1501,7 @@ export const phonemeMap = {
   },
   "zhan": {
     "sound": "jahn",
-    "description": "starts with a j sound and then rhymes with 'dawn'"
+    "description": "sounds like 'jahn', rhymes with 'flan"
   },
   "zhang": {
     "sound": "jahng",
