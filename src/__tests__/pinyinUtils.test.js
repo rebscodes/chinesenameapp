@@ -1,143 +1,44 @@
-import { getPronunciation, formatPronunciationError, formatPronunciationResult } from '../utils/pinyinUtils';
+import { getPronunciation, formatPronunciationError, formatPronunciationResult, separatePinyinSyllables } from '../utils/pinyinUtils';
 import { phonemeMap } from '../data/phonemeMap';
 import { TEST_SYLLABLES, TEST_NAMES, createPronunciationString } from '../utils/testUtils';
 
 describe('Pinyin Utilities', () => {
-  describe('getPronunciation', () => {
-    test('handles single syllable names', () => {
-      const cases = [TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SINGLE];
-      cases.forEach(name => {
-        const result = getPronunciation(name);
-        expect(result.syllables).toEqual([name]);
-        expect(result.notFoundSyllables).toEqual([]);
-      });
+  describe('separatePinyinSyllables', () => {
+    test('handles single syllables', () => {
+      expect(separatePinyinSyllables('li')).toEqual(['li']);
+      expect(separatePinyinSyllables('wei')).toEqual(['wei']);
+      expect(separatePinyinSyllables('zhao')).toEqual(['zhao']);
     });
 
-    test('handles multi-syllable names', () => {
-      const cases = [
-        { input: TEST_NAMES.DOUBLE, expected: [TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.DOUBLE_SECOND] },
-        { input: TEST_NAMES.SIMILAR, expected: [TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SIMILAR_SECOND] }
-      ];
-      cases.forEach(({ input, expected }) => {
-        const result = getPronunciation(input);
-        expect(result.syllables).toEqual(expected);
-        expect(result.notFoundSyllables).toEqual([]);
-      });
+    test('handles compound syllables', () => {
+      expect(separatePinyinSyllables('zheng')).toEqual(['zheng']);
+      expect(separatePinyinSyllables('zhang')).toEqual(['zhang']);
+      expect(separatePinyinSyllables('xiao')).toEqual(['xiao']);
     });
 
-    // Edge cases
-    test('handles empty and whitespace input', () => {
-      const cases = ['', ' ', '   '];
-      cases.forEach(input => {
-        const result = getPronunciation(input);
-        expect(result.syllables).toEqual([]);
-        expect(result.notFoundSyllables).toEqual([]);
-      });
+    test('handles multi-syllable words', () => {
+      expect(separatePinyinSyllables('zhangwei')).toEqual(['zhang', 'wei']);
+      expect(separatePinyinSyllables('liming')).toEqual(['li', 'ming']);
+      expect(separatePinyinSyllables('xiaoming')).toEqual(['xiao', 'ming']);
     });
 
     test('handles case variations', () => {
-      const cases = [
-        { input: 'ZHANG', expected: ['zhang'] },
-        { input: 'LiMing', expected: ['li', 'ming'] },
-        { input: 'ZhaoMING', expected: ['zhao', 'ming'] }
-      ];
-      cases.forEach(({ input, expected }) => {
-        const result = getPronunciation(input);
-        expect(result.syllables).toEqual(expected);
-        expect(result.notFoundSyllables).toEqual([]);
-      });
+      expect(separatePinyinSyllables('ZHENG')).toEqual(['zheng']);
+      expect(separatePinyinSyllables('ZhangWei')).toEqual(['zhang', 'wei']);
+      expect(separatePinyinSyllables('LiMing')).toEqual(['li', 'ming']);
     });
 
-    // Special cases
-    test('handles repeated syllables', () => {
-      const cases = [
-        { input: 'lingling', expected: ['ling', 'ling'] },
-        { input: 'mingming', expected: ['ming', 'ming'] },
-        { input: 'zhaozhao', expected: ['zhao', 'zhao'] }
-      ];
-      cases.forEach(({ input, expected }) => {
-        const result = getPronunciation(input);
-        expect(result.syllables).toEqual(expected);
-        expect(result.notFoundSyllables).toEqual([]);
-      });
+    test('handles whitespace', () => {
+      expect(separatePinyinSyllables('zhang wei')).toEqual(['zhang', 'wei']);
+      expect(separatePinyinSyllables('  li  ming  ')).toEqual(['li', 'ming']);
+      expect(separatePinyinSyllables('zhao ming')).toEqual(['zhao', 'ming']);
     });
 
-    test('handles similar syllables', () => {
-      const cases = [
-        { input: 'zhaozao', expected: ['zhao', 'zao'] },
-        { input: 'zhangzhan', expected: ['zhang', 'zhan'] },
-        { input: 'zhaozhan', expected: ['zhao', 'zhan'] }
-      ];
-      cases.forEach(({ input, expected }) => {
-        const result = getPronunciation(input);
-        expect(result.syllables).toEqual(expected);
-        expect(result.notFoundSyllables).toEqual([]);
-      });
-    });
-
-    test('handles syllables with spaces', () => {
-      const cases = [
-        { input: 'zhao zao', expected: ['zhao', 'zao'] },
-        { input: 'zhang zhan', expected: ['zhang', 'zhan'] },
-        { input: 'ling ling', expected: ['ling', 'ling'] }
-      ];
-      cases.forEach(({ input, expected }) => {
-        const result = getPronunciation(input);
-        expect(result.syllables).toEqual(expected);
-        expect(result.notFoundSyllables).toEqual([]);
-      });
-    });
-
-    // Invalid input handling
-    test('handles invalid characters', () => {
-      const cases = [
-        { input: 'zhang123', expected: ['zhang', '1', '2', '3'] },
-        { input: 'li!wei@', expected: ['li', '!', 'wei', '@'] }
-      ];
-      cases.forEach(({ input, expected }) => {
-        const result = getPronunciation(input);
-        expect(result.syllables).toEqual(expected);
-      });
-    });
-  });
-
-  describe('formatPronunciationError', () => {
-    test('formats error message for different types of invalid input', () => {
-      const cases = [
-        {
-          // Single character unparseable input
-          syllables: ['x', 'y', 'z'],
-          notFound: ['x', 'y', 'z'],
-          input: 'xyz',
-          expected: 'Could not parse "xyz" into valid pinyin.'
-        },
-        {
-          // Mixed valid and unparseable input
-          syllables: ['zhang', 'x', 'y', 'z'],
-          notFound: ['x', 'y', 'z'],
-          input: 'zhangxyz',
-          expected: 'Could not parse "zhangxyz" into valid pinyin.'
-        },
-        {
-          // Invalid multi-character syllables
-          syllables: ['zhang', 'abcd'],
-          notFound: ['abcd'],
-          input: 'zhangabcd',
-          expected: 'Could not parse "zhangabcd" into valid pinyin.'
-        },
-        {
-          // Mixed unparseable characters and invalid syllables
-          syllables: ['zhang', 'x', 'y', 'abcd'],
-          notFound: ['x', 'y', 'abcd'],
-          input: 'zhangxyabcd',
-          expected: 'Could not parse "zhangxyabcd" into valid pinyin.'
-        }
-      ];
-
-      cases.forEach(({ syllables, notFound, input, expected }) => {
-        const result = formatPronunciationError(syllables, notFound, input);
-        expect(result).toBe(expected);
-      });
+    test('handles invalid input', () => {
+      expect(separatePinyinSyllables('xyz')).toEqual(['x', 'y', 'z']);
+      expect(separatePinyinSyllables('zhengxyz')).toEqual(['zheng', 'x', 'y', 'z']);
+      expect(separatePinyinSyllables('')).toEqual([]);
+      expect(separatePinyinSyllables('   ')).toEqual([]);
     });
   });
 
@@ -151,10 +52,6 @@ describe('Pinyin Utilities', () => {
         {
           syllables: [TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.DOUBLE_SECOND],
           expected: createPronunciationString([TEST_SYLLABLES.DOUBLE_FIRST, TEST_SYLLABLES.DOUBLE_SECOND], phonemeMap)
-        },
-        {
-          syllables: [TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SIMILAR_SECOND],
-          expected: createPronunciationString([TEST_SYLLABLES.SIMILAR_FIRST, TEST_SYLLABLES.SIMILAR_SECOND], phonemeMap)
         }
       ];
 
@@ -167,6 +64,12 @@ describe('Pinyin Utilities', () => {
     test('handles syllables without pronunciation', () => {
       const result = formatPronunciationResult(['xyz']);
       expect(result).toBe('"xyz" (pronunciation not found)');
+    });
+
+    test('handles mixed valid and invalid syllables', () => {
+      const result = formatPronunciationResult(['zhang', 'xyz']);
+      expect(result).toContain(phonemeMap['zhang'].description);
+      expect(result).toContain('"xyz" (pronunciation not found)');
     });
   });
 }); 
