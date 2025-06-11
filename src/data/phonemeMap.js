@@ -5,7 +5,7 @@ export const phonemeMap = {
   },
   "an": {
     "sound": "ahn",
-    "description": "like the 'on' in 'upon'"
+    "description": "sounds like 'ahn', rhymes with 'flan'"
   },
   "ang": {
     "sound": "ahng",
@@ -25,7 +25,7 @@ export const phonemeMap = {
   },
   "ban": {
     "sound": "bahn",
-    "description": "sounds like 'bahn', rhymes with 'upon'"
+    "description": "sounds like 'bahn', rhymes with 'flan'"
   },
   "bang": {
     "sound": "bahng",
@@ -42,6 +42,10 @@ export const phonemeMap = {
   "ben": {
     "sound": "bun",
     "description": "like 'bun' as in hamburger bun"
+  },
+  "beng": {
+    "sound": "bung",
+    "description": "sounds like 'bung' in 'bungalow'"
   },
   "bi": {
     "sound": "bee",
@@ -757,7 +761,7 @@ export const phonemeMap = {
   },
   "men": {
     "sound": "mun",
-    "description": "rhymes with 'done'"
+    "description": "sounds like 'mun', rhymes with 'done'"
   },
   "meng": {
     "sound": "mung",
@@ -1045,7 +1049,7 @@ export const phonemeMap = {
   },
   "ren": {
     "sound": "run",
-    "description": "just like 'to run'"
+    "description": "just like 'to run', rhymes with 'done'"
   },
   "reng": {
     "sound": "rung",
@@ -1325,7 +1329,7 @@ export const phonemeMap = {
   },
   "wen": {
     "sound": "wun",
-    "description": "sounds like the word 'when'"
+    "description": "sounds like the number 'one'"
   },
   "weng": {
     "sound": "wung",
