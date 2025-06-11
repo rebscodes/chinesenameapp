@@ -1329,7 +1329,7 @@ export const phonemeMap = {
   },
   "wen": {
     "sound": "wun",
-    "description": "sounds like the nunber 'one'"
+    "description": "sounds like the number 'one'"
   },
   "weng": {
     "sound": "wung",
