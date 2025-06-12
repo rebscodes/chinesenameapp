@@ -1397,7 +1397,7 @@ export const phonemeMap = {
   },
   "xun": {
     "sound": "shoon",
-    "description": "starts with 'shoo' and then rhymes with 'moon'"
+    "description": "starts with 'shu' and then rhymes with 'moon'"
   },
   "ya": {
     "sound": "yah",
