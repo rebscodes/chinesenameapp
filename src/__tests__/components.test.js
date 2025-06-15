@@ -12,7 +12,7 @@ describe('Header Component', () => {
   test('renders header with title and description', () => {
     render(<Header />);
     expect(screen.getByText('Pinyin Helper')).toBeInTheDocument();
-    expect(screen.getByText('Helping English speakers pronounce Chinese')).toBeInTheDocument();
+    expect(screen.getByText('A simplified guide for pronouncing Chinese')).toBeInTheDocument();
   });
 });
 
@@ -35,6 +35,26 @@ describe('ResultsSection Component', () => {
       />
     );
     expect(screen.queryByRole('button', { name: /listen to pronunciation/i })).not.toBeInTheDocument();
+  });
+
+  test('shows tone note for pinyin input', () => {
+    render(
+      <ResultsSection 
+        pronunciation="zhang wei" 
+        originalInput="zhang wei"
+      />
+    );
+    expect(screen.getByText(/This describes syllable sounds only. Tones are important to proper Chinese pronunciation but not covered here./i)).toBeInTheDocument();
+  });
+
+  test('does not show tone note for Chinese input', () => {
+    render(
+      <ResultsSection 
+        pronunciation="zhang wei" 
+        originalInput="张伟"
+      />
+    );
+    expect(screen.queryByText(/This describes syllable sounds only. Tones are important to proper Chinese pronunciation but not covered here./i)).not.toBeInTheDocument();
   });
 });
 

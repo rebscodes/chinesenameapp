@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { BookOpen, Volume2 } from 'lucide-react';
+import { BookOpen, Volume2, Info } from 'lucide-react';
 import { checkIfChineseCharacters } from '../utils/pinyinUtils';
 import { playAudio } from '../utils/tts';
 
@@ -70,6 +70,15 @@ const ResultsSection = ({ pronunciation, originalInput = '' }) => {
           );
         })}
       </div>
+
+      {!showSpeakerButtons && (
+        <div className="bg-blue-50 rounded-xl p-4 flex items-start gap-2">
+          <Info className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+          <p className="text-blue-700 text-sm">
+            <span className="font-medium"></span> This describes syllable sounds only. Tones are important to proper Chinese pronunciation but not covered here.
+          </p>
+        </div>
+      )}
     </div>
   );
 };
