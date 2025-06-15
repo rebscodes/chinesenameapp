@@ -6,7 +6,6 @@ A user-friendly web application that helps English speakers pronounce Chinese na
 
 - **Simple Input**: Type Pinyin syllables to get English sound-alikes
 - **Tone Information**: View tone descriptions when Chinese characters are provided
-- **Responsive Design**: Works seamlessly on both desktop and mobile devices
 
 ## What is Pinyin?
 
@@ -39,14 +38,3 @@ npm start
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-## Technologies Used
-
-- React
-- Tailwind CSS
-- Vite
-- Pinyin conversion utilities
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
