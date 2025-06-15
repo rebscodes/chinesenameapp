@@ -71,5 +71,26 @@ describe('Pinyin Utilities', () => {
       expect(result).toContain(phonemeMap['zhang'].description);
       expect(result).toContain('"xyz" (pronunciation not found)');
     });
+
+    test('displays tone-marked pinyin for Chinese character input', () => {
+      const result = formatPronunciationResult(['zhang', 'wei'], '张伟');
+      expect(result).toContain('"zhāng"');
+      expect(result).toContain('"wěi"');
+      expect(result).toContain(phonemeMap['zhang'].description);
+      expect(result).toContain(phonemeMap['wei'].description);
+    });
+
+    test('keeps original pinyin for non-Chinese input', () => {
+      const result = formatPronunciationResult(['zhang', 'wei'], 'zhang wei');
+      expect(result).toContain('"zhang"');
+      expect(result).toContain('"wei"');
+      expect(result).toContain(phonemeMap['zhang'].description);
+      expect(result).toContain(phonemeMap['wei'].description);
+    });
+
+    test('handles empty input', () => {
+      expect(formatPronunciationResult([], '')).toBe('');
+      expect(formatPronunciationResult([], '张伟')).toBe('');
+    });
   });
 }); 

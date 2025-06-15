@@ -11,79 +11,121 @@ export const EXAMPLE_NAMES = {
 export const EXAMPLE_NAMES_STRING = `${EXAMPLE_NAMES.TIANYUAN}, ${EXAMPLE_NAMES.WENQING}, ${EXAMPLE_NAMES.ZHIHUA}, ${EXAMPLE_NAMES.ZHANGWEILI}`;
 
 // Get all possible syllables from phonemeMap, sorted by length (longest first)
-const POSSIBLE_SYLLABLES = Object.keys(phonemeMap).sort((a, b) => b.length - a.length);
+const allSyllables = Object.keys(phonemeMap).sort((a, b) => b.length - a.length);
+
+export const checkIfChineseCharacters = (text) => {
+  if (!text) return false;
+  // Check if the text contains any Chinese characters
+  return /[\u4e00-\u9fa5]/.test(text);
+};
+
+// Convert Chinese to pinyin with tone marks for display
+export const convertToPinyin = (input) => {
+  if (!input) return '';
+  
+  // If the input is already pinyin (no Chinese characters), return as is
+  if (!checkIfChineseCharacters(input)) {
+    return input;
+  }
+  
+  // Convert Chinese to pinyin with tone marks
+  return pinyin(input, {
+    style: pinyin.STYLE_TONE,  // Use tone marks (e.g., zhāng wěi)
+    segment: true
+  }).flat().join(' ');
+};
+
+// Convert Chinese to pinyin without tones for phoneme lookup
+export const convertToPinyinNoTones = (input) => {
+  if (!input) return '';
+  
+  // If the input is already pinyin (no Chinese characters), return as is
+  if (!checkIfChineseCharacters(input)) {
+    return input;
+  }
+  
+  // Convert Chinese to pinyin without tones
+  return pinyin(input, {
+    style: pinyin.STYLE_NORMAL,  // No tones
+    segment: true
+  }).flat().join(' ');
+};
 
 export const separatePinyinSyllables = (input) => {
-  const words = input.toLowerCase().trim().split(/\s+/);
-  let result = [];
-
-  for (const word of words) {
-    let remaining = word;
-
-    while (remaining.length > 0) {
+  if (!input) return [];
+  
+  // Split by spaces first, then process each syllable
+  const syllables = input.toLowerCase().trim().split(/\s+/);
+  const result = [];
+  
+  for (const syllable of syllables) {
+    let remaining = syllable;
+    
+    while (remaining) {
       let found = false;
-
+      
       // Try all possible syllables, starting with the longest ones
-      for (const syllable of POSSIBLE_SYLLABLES) {
-        if (remaining.startsWith(syllable)) {
-          result.push(syllable);
-          remaining = remaining.slice(syllable.length);
+      for (const possibleSyllable of allSyllables) {
+        if (remaining.startsWith(possibleSyllable)) {
+          result.push(possibleSyllable);
+          remaining = remaining.slice(possibleSyllable.length);
           found = true;
           break;
         }
       }
-
-      // If no valid syllable found, take one character
+      
       if (!found) {
+        // If no syllable matches, take the first character
         result.push(remaining[0]);
         remaining = remaining.slice(1);
       }
     }
   }
-
+  
   return result;
-};
-
-export const convertToPinyin = (input) => {
-  // Convert Chinese to pinyin without tones
-  return pinyin(input, {
-    style: pinyin.STYLE_NORMAL,
-    segment: true
-  }).flat().join(' ');
-};
-
-export const checkIfChineseCharacters = (input) => {
-  return /[\u4e00-\u9fa5]/.test(input);
 };
 
 export const getPronunciation = (name) => {
   if (!name) return { syllables: [], notFoundSyllables: [] };
   
-  // First convert any Chinese characters to pinyin
-  let pinyinText = name;
-  if (checkIfChineseCharacters(name)) {
-    pinyinText = convertToPinyin(name);
-  }
-
-  // Process the pinyin
+  // Convert to pinyin without tones for phoneme lookup
+  const pinyinText = convertToPinyinNoTones(name);
   const syllables = separatePinyinSyllables(pinyinText);
+  
+  // Check which syllables are in our phoneme map
   const notFoundSyllables = syllables.filter(syllable => !phonemeMap[syllable]);
+  
   return { syllables, notFoundSyllables };
 };
 
 export const formatPronunciationError = (syllables, notFoundSyllables, originalInput) => {
-  const containsChinese = /[\u4e00-\u9fa5]/.test(originalInput);
-  if (containsChinese) {
-    return `Could not parse "${originalInput}" (converted to pinyin: "${convertToPinyin(originalInput)}") into valid syllables.`;
+  if (notFoundSyllables.length === 0) return '';
+  
+  const hasChineseChars = checkIfChineseCharacters(originalInput);
+  if (hasChineseChars) {
+    const pinyinText = convertToPinyinNoTones(originalInput);
+    return `Could not parse "${originalInput}" (converted to pinyin: "${pinyinText}") into valid syllables.`;
   }
+  
   return `Could not parse "${originalInput}" into valid pinyin.`;
 };
 
-export const formatPronunciationResult = (syllables) => {
-  return syllables.map(syllable => {
-    if (phonemeMap[syllable]) {
-      return `"${syllable}" ${phonemeMap[syllable].description}`;
+export const formatPronunciationResult = (syllables, originalInput) => {
+  if (!syllables.length) return '';
+  
+  // If the input contains Chinese characters, use tone-marked pinyin for display
+  const hasChineseChars = checkIfChineseCharacters(originalInput);
+  const displaySyllables = hasChineseChars ? 
+    convertToPinyin(originalInput).split(' ') : 
+    syllables;
+  
+  return syllables.map((syllable, index) => {
+    const pronunciation = phonemeMap[syllable];
+    if (!pronunciation) {
+      return `"${syllable}" (pronunciation not found)`;
     }
-    return `"${syllable}" (pronunciation not found)`;
+    // Use the tone-marked syllable for display if available
+    const displaySyllable = displaySyllables[index] || syllable;
+    return `"${displaySyllable}" ${pronunciation.description}`;
   }).join('\n');
 };
