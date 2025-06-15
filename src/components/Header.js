@@ -9,7 +9,7 @@ const Header = () => (
         </div>
         <div>
           <h1 className="text-xl font-bold text-gray-900">Pinyin Helper</h1>
-          <p className="text-sm text-gray-600">Helping English speakers pronounce Chinese</p>
+          <p className="text-sm text-gray-600">A simplified guide for pronouncing Chinese</p>
         </div>
       </div>
     </div>
