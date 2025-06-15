@@ -23,10 +23,10 @@ describe('Chinese Character Support', () => {
   });
 
   describe('convertToPinyin', () => {
-    test('converts Chinese characters to pinyin', () => {
-      expect(convertToPinyin('张伟')).toBe('zhang wei');
-      expect(convertToPinyin('李明')).toBe('li ming');
-      expect(convertToPinyin('王小明')).toBe('wang xiao ming');
+    test('converts Chinese characters to pinyin with tone marks', () => {
+      expect(convertToPinyin('张伟')).toBe('zhāng wěi');
+      expect(convertToPinyin('李明')).toBe('lǐ míng');
+      expect(convertToPinyin('王小明')).toBe('wáng xiǎo míng');
     });
 
     test('leaves pinyin unchanged', () => {
@@ -35,8 +35,8 @@ describe('Chinese Character Support', () => {
     });
 
     test('handles mixed input', () => {
-      expect(convertToPinyin('张wei')).toBe('zhang wei');
-      expect(convertToPinyin('li明')).toBe('li ming');
+      expect(convertToPinyin('张wei')).toBe('zhāng wei');
+      expect(convertToPinyin('li明')).toBe('li míng');
     });
 
     test('handles empty and non-Chinese input', () => {

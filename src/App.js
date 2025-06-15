@@ -8,6 +8,7 @@ import { getPronunciation, formatPronunciationError, formatPronunciationResult }
 const App = () => {
   const [inputName, setInputName] = useState('');
   const [pronunciation, setPronunciation] = useState('');
+  const [pronunciationInput, setPronunciationInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -17,6 +18,7 @@ const App = () => {
     setIsLoading(true);
     setErrors([]);
     setPronunciation('');
+    setPronunciationInput(inputName);
 
     // Use Promise to handle the async operation
     new Promise((resolve) => {
@@ -29,8 +31,9 @@ const App = () => {
         if (notFoundSyllables.length > 0) {
           setErrors([formatPronunciationError(syllables, notFoundSyllables, inputName.trim())]);
           setPronunciation('');
+          setPronunciationInput('');
         } else {
-          setPronunciation(formatPronunciationResult(syllables));
+          setPronunciation(formatPronunciationResult(syllables, inputName.trim()));
         }
       })
       .finally(() => {
@@ -41,6 +44,7 @@ const App = () => {
   const clearInput = useCallback(() => {
     setInputName('');
     setPronunciation('');
+    setPronunciationInput('');
     setErrors([]);
   }, []);
 
@@ -71,6 +75,7 @@ const App = () => {
         {errors.length === 0 && (
           <ResultsSection
             pronunciation={pronunciation}
+            originalInput={pronunciationInput}
           />
         )}
 
