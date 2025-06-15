@@ -82,10 +82,10 @@ const App = () => {
         <ExamplesSection setInputName={setInputName} />
 
         <div className="text-center text-sm text-gray-500 space-y-2">
-          <p>that's just like, your 'pinyin man!</p>
+          <a href="https://www.youtube.com/watch?v=Z-xI1384Ry4&ab_channel=WorldSchool">that's just like, your 'pinyin man!</a>
           <p>made with 💖 by
             <a href="http://instagram.com/rebswushu">@rebswushu</a>.&nbsp;
-            <a href="https://coff.ee/rebscodes">buy me a coffee</a>!
+            <a href="https://coff.ee/rebscodes">buy me a coffee</a>?
           </p>
         </div>
       </div>
