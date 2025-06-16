@@ -15,7 +15,7 @@ export const getToneDescription = (pinyinWithTone) => {
   const toneMap = {
     'āēīōūǖ': 'The tone is high and steady, like singing a single note',
     'áéíóúǘ': 'The tone rises as if asking a question, like "huh?"',
-    'ǎěǐǒǔǚ': 'The tone dips down and back up, like saying "hmmm...?"',
+    'ǎěǐǒǔǚ': 'The tone dips down and back up, like saying "hmmmMMH...?"',
     'àèìòùǜ': 'The tone falls sharply, like firmly answering "no."',
   };
   
