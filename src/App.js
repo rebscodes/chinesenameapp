@@ -85,7 +85,8 @@ const App = () => {
           <a href="https://www.youtube.com/watch?v=Z-xI1384Ry4&ab_channel=WorldSchool">that's just like, your 'pinyin man!</a>
           <p>made with 💖 by
             <a href="http://instagram.com/rebswushu">@rebswushu</a>.&nbsp;
-            <a href="https://coff.ee/rebscodes">buy me a coffee</a>?
+            <a href="https://coff.ee/rebscodes">say thanks!☕</a> 
+            <a href="https://www.admonymous.co/rebecca-chinn">share thoughts?💭</a>&nbsp;
           </p>
         </div>
       </div>
