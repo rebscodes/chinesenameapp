@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from './components/Header';
 import InputSection from './components/InputSection';
 import ResultsSection from './components/ResultsSection';
@@ -50,6 +51,28 @@ const App = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Chinese Name Pronunciation Tool",
+            "description": "Free tool to learn correct pronunciation of Chinese names with pinyin guide. Perfect for English speakers learning Mandarin Chinese.",
+            "url": "https://pinyinhelper.com",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web Browser",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "creator": {
+              "@type": "Person",
+              "name": "Rebecca Chinn"
+            }
+          })}
+        </script>
+      </Helmet>
       <Header />
       <div className="max-w-md mx-auto px-4 py-6 space-y-6">
         <InputSection
